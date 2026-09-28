@@ -383,6 +383,11 @@
       background: var(--white);
       border-top: 1px solid var(--gray-ice);
       box-shadow: var(--shadow-card);
+      /* Celular deitado: o menu nunca passa da tela e rola por dentro */
+      max-height: calc(100vh - var(--header-h));
+      max-height: calc(100dvh - var(--header-h));
+      overflow-y: auto;
+      overscroll-behavior: contain;
     }
     .main-nav.is-open { display: block; }
     .main-nav ul { padding-block: var(--sp-1) var(--sp-2); }
@@ -410,6 +415,8 @@
         border: 0;
         box-shadow: none;
         margin-left: auto;
+        max-height: none;
+        overflow: visible;
       }
       .main-nav ul { display: flex; gap: 4px; padding: 0; }
       .main-nav a { padding-inline: 14px; border-radius: var(--r-btn); }
@@ -941,6 +948,8 @@
       transition: background-color .2s ease;
     }
     .wa-float:hover { background: var(--orange-hover); color: var(--white); }
+    /* Com o menu aberto no celular, o botão flutuante não cobre o "Pedir Orçamento" */
+    body.menu-aberto .wa-float { visibility: hidden; }
     .wa-float:focus-visible { outline: none; background: var(--blue-800); }
     .wa-float svg { width: 30px; height: 30px; }
     @media (min-width: 768px) { .wa-float { right: 24px; bottom: 24px; width: 64px; height: 64px; } }
@@ -1584,6 +1593,7 @@
         toggle.setAttribute('aria-expanded', String(open));
         toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
         nav.classList.toggle('is-open', open);
+        document.body.classList.toggle('menu-aberto', open);
         if (!open && returnFocus) toggle.focus();
       };
 

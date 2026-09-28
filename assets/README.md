@@ -1,90 +1,77 @@
-# Assets do Hero — Distrito Refrigeração
+# Assets — Distrito Refrigeração
 
-Vídeo de fundo da capa: 4 equipamentos (geladeira → lavadora → fogão → expositor), cada um em loop
-ping-pong (monta → desmonta em vista explodida → monta), gerados no Higgsfield e processados com ffmpeg.
+Todas as imagens e vídeos publicados são **reais** (fotografia e filmagem), do banco gratuito **Pexels**.
+As versões geradas por IA (Higgsfield) foram substituídas e ficam só como histórico em `raw/ia/`
+(fora do git).
 
-## Arquivos finais
+## Licença
 
-| Arquivo | Formato | Resolução | Duração | Tamanho |
-|---|---|---|---|---|
-| `hero.mp4` | H.264, CRF 28, preset slow, faststart, sem áudio | 1920x1080, 30 fps | 32,4 s | 3,66 MB (3.842.120 bytes) |
-| `hero.webm` | VP9, CRF 34, b:v 0, sem áudio | 1920x1080, 30 fps | 32,4 s | 3,79 MB (3.975.944 bytes) |
-| `hero-poster.jpg` | JPEG, 1º frame (geladeira montada) | 1920x1080 | — | 50 KB (51.008 bytes) |
+[Licença Pexels](https://www.pexels.com/license/): uso comercial liberado, sem pagamento e sem crédito obrigatório.
+Não é permitido vender as imagens sem alteração nem sugerir que as pessoas ou marcas que aparecem nelas
+endossam a empresa. Por isso as fotos escolhidas mostram equipamentos e mãos, sem rostos em destaque.
 
-Metas: `hero.mp4` < 5 MB ✔ · `hero-poster.jpg` < 200 KB ✔.
+> A foto da seção **Sobre** é provisória. O ideal é trocar por uma foto real da equipe
+> (`img/sobre-ferramentas.webp`, 800x1000, proporção 4:5).
 
-O **mesmo vídeo** é usado no celular e no PC (fundo do Hero com `object-fit: cover`). A versão 9:16 recortada foi gerada, mas descartada a pedido: está em `raw/hero-mobile_nao-usado.mp4`.
+## Arquivos publicados
 
-## Modelos
-
-| Uso | Modelo | Configuração | Custo unitário |
+| Arquivo | Uso | Detalhes | Tamanho |
 |---|---|---|---|
-| Fotos | GPT Image 2.5 (`gpt_image_2_5`, variante flare) | quality high, 2K (2688x1520), 16:9 | 2,75 créditos |
-| Vídeos (image-to-video) | Kling v3.0 (`kling3_0`) | mode pro, 4 s, 16:9, sound off, foto como `start_image` | 7 créditos |
+| `hero.mp4` | fundo do Hero (celular e PC) | H.264, 1920x1080, 30 fps, 20,4 s, sem áudio, CRF 30, faststart | 3,48 MB |
+| `hero.webm` | fundo do Hero (navegadores com VP9) | VP9, 1920x1080, 30 fps, CRF 36 | 4,12 MB |
+| `hero-poster.jpg` | imagem inicial do Hero e do compartilhamento | 1600x900, 1º quadro | 144 KB |
+| `img/servicos/*.webp` | fotos dos 6 cards de serviço | 800x600 (4:3), WebP q80 | 17–81 KB cada |
+| `img/diagnostico-placa.webp` | foto da Apresentação (desktop) | 800x1000, quadro do vídeo de reparo de placa | 35 KB |
+| `img/sobre-ferramentas.webp` | foto provisória da seção Sobre | 800x1000 | 30 KB |
+| `img/cta-ferramentas.webp` | fundo da chamada final | 1600x900, quadro do vídeo da maleta | 88 KB |
+| `brand/logo.webp` | logo do header e do rodapé (fundo transparente) | recorte da `Logo Prolongada.png` sem o slogan, 460x90 | 27 KB |
+| `brand/favicon-32.png`, `brand/apple-touch-icon.png` | ícone da aba e do celular | marca "D" com floco de neve | 2 KB / 35 KB |
 
-As fotos 2–4 usaram a foto 1 (geladeira aprovada) como `image_references` para manter fundo, luz e enquadramento.
-Saída do Kling: 1912x1080, 24 fps — normalizada para 1920x1080, 30 fps antes do concat.
+## Créditos (Pexels)
 
-## Créditos gastos
+| Onde aparece | Tipo | Autor | Original |
+|---|---|---|---|
+| vídeo do Hero (trecho 1) e fundo da chamada final (quadro) | Vídeo | Artem Podrez | [Close Up Video of a Person Opening Toolbox](https://www.pexels.com/video/close-up-video-of-a-person-opening-toolbox-8986486/) |
+| vídeo do Hero (trecho 2) e foto da Apresentação (quadro) | Vídeo | Tima Miroshnichenko | [A Person Using Soldering Iron](https://www.pexels.com/video/a-person-using-soldering-iron-6754832/) |
+| vídeo do Hero (trecho 3) | Vídeo | Curtis Adams | [A kitchen with a stainless steel refrigerator and granite counter tops](https://www.pexels.com/video/a-kitchen-with-a-stainless-steel-refrigerator-and-granite-counter-tops-17246203/) |
+| vídeo do Hero (trecho 4) | Vídeo | Ahimsa - OM | [Bright Frozen Food Aisle in Supermarket](https://www.pexels.com/video/bright-frozen-food-aisle-in-supermarket-29824279/) |
+| vídeo do Hero (trecho 5) | Vídeo | S R B S C A P E | [Close up View of Clothes Spinning inside a Washing Machine](https://www.pexels.com/video/close-up-view-of-clothes-spinning-inside-a-washing-machine-15432350/) |
+| vídeo do Hero (trecho 6) | Vídeo | James Cheney | [Blue Flame Gas Stove Burner Close-Up](https://www.pexels.com/video/blue-flame-gas-stove-burner-close-up-34661882/) |
+| card Geladeiras e Frigobares | Foto | Curtis Adams | [Silver French Door Refrigerator in the Kitchen](https://www.pexels.com/photo/silver-french-door-refrigerator-in-the-kitchen-4933252/) |
+| card Freezers | Foto | Daniel & Hannah Snipes | [Frozen Meat Display in Retail Freezer Aisle](https://www.pexels.com/photo/frozen-meat-display-in-retail-freezer-aisle-29834274/) |
+| card Câmaras Frigoríficas | Foto | Anna Shvets | [A Worker in a Storage Room](https://www.pexels.com/photo/a-worker-in-a-storage-room-5953713/) |
+| card Expositores Refrigerados | Foto | Thang Nguyen | [Refrigerated Drinks and Snacks Display in Cafe](https://www.pexels.com/photo/refrigerated-drinks-and-snacks-display-in-cafe-34056733/) |
+| card Máquinas de Lavar e Tanquinhos | Foto | Ekaterina Belinskaya | [White Front Load Washing Machine](https://www.pexels.com/photo/white-front-load-washing-machine-4700389/) |
+| card Fogões | Foto | Mateusz Feliksik | [Close-Up Shot of a Stove](https://www.pexels.com/photo/close-up-shot-of-a-stove-13422435/) |
+| foto provisória da seção Sobre | Foto | Anete Lusina | [Faceless craftsman checking screw over tool box](https://www.pexels.com/photo/faceless-craftsman-checking-screw-over-tool-box-4792499/) |
 
-| Item | Qtd. | Créditos |
-|---|---|---|
-| Fotos | 4 | 11 |
-| Vídeos | 4 | 28 |
-| Nova tentativa do vídeo do fogão (chama azul acesa no v1) | 1 | 7 |
-| **Total** | | **46** (saldo 1000 → 954) |
+## Como o vídeo do Hero foi montado (ffmpeg 9.0.1)
 
-## Arquivos em `raw/`
-
-- `foto1_geladeira.png`, `foto2_lavadora.png`, `foto3_fogao.png`, `foto4_expositor.png` — originais do GPT Image 2.5
-- `clipe1_geladeira.mp4`, `clipe2_lavadora.mp4`, `clipe3_fogao.mp4`, `clipe4_expositor.mp4` — originais do Kling
-- `clipe3_fogao_v1_descartado.mp4` — 1ª versão do fogão, descartada (queimador interno com chama azul acesa)
-- `clipeN_*_loop.mp4` — versões ping-pong normalizadas (1920x1080, 30 fps, H.264 CRF 16)
-- `hero_full.mp4` — concat sem reencode dos 4 loops (32,4 s, ~27 MB, master para novas compressões)
-- `list.txt` — lista usada no concat
-- `hero-mobile_nao-usado.mp4` — recorte 9:16 (720x1280, 1,84 MB), não usado no site
-
-## Processamento (ffmpeg 9.0.1)
+Seis trechos de 4 s, na ordem: técnico abrindo a maleta → reparo de placa → geladeira → balcão refrigerado
+→ máquina de lavar → chama do fogão. Todos recebem o mesmo tratamento de cor (leve dessaturação e sombras
+puxadas para o azul da marca) e trocam entre si com fade de 0,6 s. No fim, o vídeo faz fade de volta para o
+começo, então o loop não tem emenda.
 
 ```bash
-# 1+2. ping-pong + normalização (por clipe)
-ffmpeg -i clipeN.mp4 -filter_complex "[0:v]reverse[r];[0:v][r]concat=n=2:v=1:a=0,scale=1920:1080:flags=lanczos,setsar=1,fps=30,format=yuv420p[v]" -map "[v]" -an -c:v libx264 -crf 16 -preset medium -g 60 clipeN_loop.mp4
-# 3. concat sem reencode
-ffmpeg -f concat -safe 0 -i list.txt -c copy hero_full.mp4
-# 4. web
-ffmpeg -i raw/hero_full.mp4 -vf "scale=1920:-2,fps=30" -an -c:v libx264 -crf 28 -preset slow -pix_fmt yuv420p -movflags +faststart hero.mp4
-ffmpeg -i raw/hero_full.mp4 -an -c:v libvpx-vp9 -crf 34 -b:v 0 -row-mt 1 -deadline good -cpu-used 2 -pix_fmt yuv420p hero.webm
-# 5. poster
-ffmpeg -i raw/hero_full.mp4 -frames:v 1 -q:v 2 hero-poster.jpg
-# 6. mobile 9:16
-ffmpeg -i raw/hero_full.mp4 -vf "crop=608:1080:996:0,scale=720:1280:flags=lanczos,setsar=1,fps=30" -an -c:v libx264 -crf 32 -preset slow -pix_fmt yuv420p -movflags +faststart hero-mobile.mp4
+G="scale=1920:1080:force_original_aspect_ratio=increase:flags=lanczos,crop=1920:1080,fps=30,setsar=1,eq=saturation=0.88:contrast=1.04,colorbalance=bs=0.06:bm=0.02:rs=-0.03,format=yuv420p"
+
+# 1. sequência com fades (entradas: 8986486, 6754832, 17246203, 29824279, 15432350, 34661882)
+ffmpeg -ss 1 -t 4 -i 8986486.mp4 -ss 3 -t 4 -i 6754832.mp4 -ss 4 -t 4 -i 17246203.mp4 \
+       -ss 2 -t 4 -i 29824279.mp4 -ss 3 -t 4 -i 15432350.mp4 -ss 4 -t 4 -i 34661882.mp4 \
+  -filter_complex "[0:v]$G[a];[1:v]$G[b];[2:v]$G[c];[3:v]$G[d];[4:v]$G[e];[5:v]$G[f];\
+[a][b]xfade=fade:duration=0.6:offset=3.4[ab];[ab][c]xfade=fade:duration=0.6:offset=6.8[abc];\
+[abc][d]xfade=fade:duration=0.6:offset=10.2[abcd];[abcd][e]xfade=fade:duration=0.6:offset=13.6[abcde];\
+[abcde][f]xfade=fade:duration=0.6:offset=17[v]" -map "[v]" -an -c:v libx264 -crf 16 reel_seq.mp4
+
+# 2. loop sem emenda: o fim faz fade para o começo
+ffmpeg -i reel_seq.mp4 -filter_complex "[0:v]split[x][y];[x]trim=start=0.6,setpts=PTS-STARTPTS[body];\
+[y]trim=end=0.6,setpts=PTS-STARTPTS[head];[body][head]xfade=fade:duration=0.6:offset=19.8[v]" \
+  -map "[v]" -an -c:v libx264 -crf 16 reel_loop.mp4
+
+# 3. versões web + poster
+ffmpeg -i reel_loop.mp4 -an -c:v libx264 -crf 30 -preset slow -pix_fmt yuv420p -movflags +faststart hero.mp4
+ffmpeg -i reel_loop.mp4 -an -c:v libvpx-vp9 -crf 36 -b:v 0 -row-mt 1 -deadline good -cpu-used 2 hero.webm
+ffmpeg -ss 0.2 -i reel_loop.mp4 -frames:v 1 -vf scale=1600:-2 -q:v 5 hero-poster.jpg
 ```
 
-## Prompts finais
-
-**Sufixo usado nas fotos 2–4** (com a foto 1 como referência):
-`Match the reference image exactly in background, lighting, camera angle and framing; replace only the appliance.` + prompt original.
-
-### Foto 1 — geladeira
-Studio product shot of a modern white two-door refrigerator, floating in mid-air, positioned slightly right of center, on a deep cobalt blue gradient background (from #0047BB to #000E25), soft cold rim light, subtle ice-gray reflections, clean and minimal, large empty space on the left, photorealistic, sharp detail, no text, no logos, no brand names, no watermark. Aspect ratio 16:9.
-
-### Vídeo 1 — geladeira
-The two-door refrigerator slowly separates into its components in a clean exploded-view: door, shelves, drawers, compressor, condenser coil and thermostat float apart with precise, even spacing, hovering in mid-air. A small warm orange glow (#FA4616) emanates from the core internal parts. Slow, smooth camera push-in, no cuts, the dark blue studio background stays unchanged, parts stay recognizable and symmetrical, no text, no logos. Duration 3-4 seconds, 16:9.
-
-### Foto 2 — máquina de lavar
-Match the reference image exactly in background, lighting, camera angle and framing; replace only the appliance. Studio product shot of a modern white front-load washing machine, floating in mid-air, positioned slightly right of center, on a deep cobalt blue gradient background (from #0047BB to #000E25), soft cold rim light, subtle ice-gray reflections, clean and minimal, large empty space on the left, photorealistic, sharp detail, no text, no logos, no brand names, no watermark. Aspect ratio 16:9.
-
-### Vídeo 2 — máquina de lavar
-The front-load washing machine slowly separates into its components in a clean exploded-view: door, drum, motor, control panel and hoses float apart with precise, even spacing, hovering in mid-air. A small warm orange glow (#FA4616) emanates from the core internal parts. Slow, smooth camera push-in, no cuts, the dark blue studio background stays unchanged, parts stay recognizable and symmetrical, no text, no logos. Duration 3-4 seconds, 16:9.
-
-### Foto 3 — fogão
-Match the reference image exactly in background, lighting, camera angle and framing; replace only the appliance. Studio product shot of a modern white four-burner freestanding gas stove with unlit burners, floating in mid-air, positioned slightly right of center, on a deep cobalt blue gradient background (from #0047BB to #000E25), soft cold rim light, subtle ice-gray reflections, clean and minimal, large empty space on the left, photorealistic, sharp detail, no flames, no text, no logos, no brand names, no watermark. Aspect ratio 16:9.
-
-### Vídeo 3 — fogão (versão final, 2ª tentativa)
-The four-burner gas stove slowly separates into its components in a clean exploded-view: cooktop grates, burner heads, gas valves and knobs, oven door and oven cavity float apart with precise, even spacing, hovering in mid-air. The stove is completely turned off: absolutely no fire, no flames, no blue gas flame on any burner, inside or outside. A small warm orange glow (#FA4616) emanates softly from the gas valve block as a light, not as fire. Slow, smooth camera push-in, no cuts, the dark blue studio background stays unchanged, parts stay recognizable and symmetrical, no text, no logos. Duration 3-4 seconds, 16:9.
-
-### Foto 4 — expositor refrigerado
-Match the reference image exactly in background, lighting, camera angle and framing; replace only the appliance. Studio product shot of a modern commercial refrigerated display case with glass doors, floating in mid-air, positioned slightly right of center, on a deep cobalt blue gradient background (from #0047BB to #000E25), soft cold rim light, subtle ice-gray reflections, clean and minimal, large empty space on the left, photorealistic, sharp detail, empty shelves, no products, no text, no logos, no brand names, no watermark. Aspect ratio 16:9.
-
-### Vídeo 4 — expositor refrigerado
-The commercial refrigerated display case slowly separates into its components in a clean exploded-view: glass door, shelves, evaporator, compressor unit and LED lights float apart with precise, even spacing, hovering in mid-air. A small warm orange glow (#FA4616) emanates from the core internal parts. Slow, smooth camera push-in, no cuts, the dark blue studio background stays unchanged, parts stay recognizable and symmetrical, no text, no logos. Duration 3-4 seconds, 16:9.
+Fotos dos cards: recorte 4:3 centrado no equipamento, 800x600, `libwebp -quality 80`.

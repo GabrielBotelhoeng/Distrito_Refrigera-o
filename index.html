@@ -6,13 +6,22 @@
   <title>Distrito Refrigeração | Conserto de Geladeira, Freezer e mais</title>
   <meta name="description" content="Assistência técnica em refrigeração e eletrodomésticos em [cidade]. Conserto de geladeira, freezer, máquina de lavar, câmara fria e expositores. Orçamento sem compromisso.">
   <meta name="theme-color" content="#0047BB">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+
+  <!-- Compartilhamento (WhatsApp, Facebook etc.). Troque a URL quando tiver domínio próprio. -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Distrito Refrigeração | Conserto de Geladeira, Freezer e mais">
+  <meta property="og:description" content="Assistência técnica em refrigeração e eletrodomésticos. Orçamento sem compromisso pelo WhatsApp.">
+  <meta property="og:image" content="https://gabrielbotelhoeng.github.io/Distrito_Refrigera-o/assets/hero-poster.jpg">
+
   <link rel="preload" as="image" href="assets/hero-poster.jpg" fetchpriority="high">
   <script>document.documentElement.classList.add('js');</script>
 
-  <!-- Única dependência externa permitida: fonte Sora (Google Fonts) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     /* =========================================================
@@ -117,7 +126,8 @@
     h1, h2, h3, p, ul, ol, dl, dd, figure, blockquote { margin: 0; }
     ul, ol { padding: 0; list-style: none; }
 
-    h1, h2, h3 { line-height: 1.15; letter-spacing: -0.01em; }
+    h1, h2, h3 { line-height: 1.15; letter-spacing: -0.01em; text-wrap: balance; }
+    p { text-wrap: pretty; }
     h1 { font-size: var(--fs-h1); font-weight: 800; }
     h2 { font-size: var(--fs-h2); font-weight: 700; }
     h3 { font-size: var(--fs-h3); font-weight: 600; }
@@ -256,8 +266,9 @@
       border: 2px solid transparent;
       border-radius: var(--r-btn);
       cursor: pointer;
-      transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+      transition: background-color .2s ease, color .2s ease, border-color .2s ease, transform .12s ease;
     }
+    .btn:active { transform: translateY(1px) scale(0.99); }
     .btn svg { width: 20px; height: 20px; flex-shrink: 0; }
 
     /* WhatsApp / CTA quente */
@@ -331,24 +342,13 @@
     .logo {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
       min-height: 44px;
-      text-decoration: none;
-      color: var(--blue-800);
+      flex-shrink: 0;
     }
-    .logo:hover { color: var(--blue-800); }
-    .logo svg { width: 38px; height: 38px; flex-shrink: 0; }
-    .logo span {
-      display: flex;
-      flex-direction: column;
-      font-weight: 800;
-      font-style: italic;
-      text-transform: uppercase;
-      line-height: 1;
-      letter-spacing: 0.01em;
-    }
-    .logo b { font-size: 1.125rem; font-weight: 800; }
-    .logo i { font-size: 0.75rem; font-weight: 700; color: var(--blue-500); letter-spacing: 0.06em; margin-top: 3px; }
+    .logo img { height: 36px; width: auto; }
+    @media (min-width: 768px) { .logo img { height: 42px; } }
+    /* Versão branca da logo para fundos escuros */
+    .logo--light img { filter: brightness(0) invert(1); }
 
     .nav-toggle {
       display: inline-flex;
@@ -436,7 +436,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 72% center;
+      object-position: 60% center;
       pointer-events: none;
     }
     /* Película escura para manter contraste AA do texto sobre o vídeo */
@@ -523,23 +523,28 @@
     }
 
     /* Destaques */
-    .highlights { padding-block: var(--sp-5) var(--sp-6); }
-    .highlights ul { display: grid; gap: var(--sp-2); }
+    /* Um painel único que "sobe" sobre a borda diagonal do Hero */
+    .highlights { position: relative; z-index: 2; padding-bottom: var(--sp-6); }
+    .highlights ul {
+      display: grid;
+      margin-top: calc(-1 * var(--cut) - 24px);
+      background: var(--white);
+      border-top: 4px solid var(--blue-500);
+      border-radius: var(--r-card);
+      box-shadow: 0 16px 40px rgba(0, 14, 37, 0.14);
+    }
     .highlights li {
       display: flex;
       gap: var(--sp-2);
       padding: var(--sp-3);
-      background: var(--white);
-      border: 1px solid var(--gray-ice);
-      border-top: 4px solid var(--blue-500);
-      border-radius: var(--r-card);
-      box-shadow: var(--shadow-card);
     }
+    .highlights li + li { border-top: 1px solid var(--gray-ice); }
     .highlights strong { display: block; font-size: 1.0625rem; margin-bottom: 4px; color: var(--blue-800); }
     .highlights p { color: var(--muted); }
     @media (min-width: 768px) {
       .highlights ul { grid-template-columns: repeat(3, 1fr); }
-      .highlights li { flex-direction: column; }
+      .highlights li { padding: var(--sp-4) var(--sp-3); }
+      .highlights li + li { border-top: 0; border-left: 1px solid var(--gray-ice); }
     }
 
     /* =========================================================
@@ -608,7 +613,7 @@
     .intro-art { display: none; }
     @media (min-width: 1100px) {
       .intro-grid { grid-template-columns: 1.2fr 0.8fr; gap: 80px; }
-      .intro-art { display: block; }
+      .intro-art { display: block; justify-self: end; width: 100%; }
     }
 
     /* =========================================================
@@ -616,17 +621,33 @@
        ========================================================= */
     .services-grid { display: grid; gap: var(--sp-3); }
     .service-card {
+      --card-pad: var(--sp-3);
       display: flex;
       flex-direction: column;
       gap: var(--sp-2);
-      padding: var(--sp-3);
+      padding: var(--card-pad);
       background: var(--white);
       border-radius: var(--r-card);
       box-shadow: var(--shadow-card);
       border-bottom: 4px solid transparent;
+      overflow: hidden;
       transition: border-color .2s ease;
     }
     .service-card:hover { border-bottom-color: var(--blue-500); }
+    /* Foto real ocupando o topo do card, de ponta a ponta */
+    .card-media {
+      margin: calc(-1 * var(--card-pad)) calc(-1 * var(--card-pad)) var(--sp-1);
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: var(--gray-ice);
+    }
+    .card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .6s cubic-bezier(.2, .7, .2, 1);
+    }
+    .service-card:hover .card-media img { transform: scale(1.04); }
     .service-card .problem { font-weight: 600; color: var(--blue-800); }
     .service-card p { color: var(--muted); }
     .service-card .btn { margin-top: auto; align-self: stretch; }
@@ -646,11 +667,23 @@
 
     @media (min-width: 768px) {
       .services-grid { grid-template-columns: repeat(2, 1fr); }
-      .service-card { padding: var(--sp-4); }
+      .service-card { --card-pad: var(--sp-4); }
+      /* "Não achou seu equipamento?" vira uma faixa no fim da grade */
+      .service-card--cta {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        align-items: center;
+        gap: var(--sp-3);
+      }
+      .service-card--cta h3 { flex-shrink: 0; }
     }
     @media (min-width: 1100px) {
-      .services-grid { grid-template-columns: repeat(4, 1fr); }
-      .service-card { padding: 28px; }
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+      .service-card { --card-pad: 28px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .card-media img { transition: none; }
+      .service-card:hover .card-media img { transform: none; }
     }
 
     /* =========================================================
@@ -695,7 +728,31 @@
       font-weight: 600;
     }
     .about-text .btn { margin-top: var(--sp-4); }
-    .photo-slot--about { aspect-ratio: 4 / 5; max-width: 480px; }
+    .about-photo {
+      position: relative;
+      isolation: isolate;
+      max-width: 480px;
+      aspect-ratio: 4 / 5;
+    }
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: var(--r-img);
+    }
+    /* Moldura angular deslocada, no azul da marca, dá profundidade à foto */
+    .about-photo::before {
+      content: "";
+      position: absolute;
+      inset: 16px -16px -16px 16px;
+      z-index: -1;
+      background: var(--blue-500);
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%);
+    }
+    .about-photo--left::before {
+      inset: 16px 16px -16px -16px;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 40px 100%, 0 calc(100% - 40px));
+    }
     @media (min-width: 1100px) {
       .about-grid { grid-template-columns: 0.8fr 1.2fr; gap: 80px; }
     }
@@ -821,6 +878,13 @@
        CHAMADA FINAL
        ========================================================= */
     .final-cta { text-align: center; }
+    /* Foto real (técnico com a maleta) bem escurecida por trás da chamada */
+    #contato.final-cta {
+      background:
+        linear-gradient(180deg, rgba(0, 28, 75, 0.86), rgba(0, 14, 37, 0.94)),
+        url("assets/img/cta-ferramentas.webp") center 40% / cover no-repeat,
+        var(--blue-800);
+    }
     .final-cta h2 { max-width: 22ch; margin-inline: auto; }
     .final-cta p { max-width: 56ch; margin: var(--sp-3) auto 0; font-size: var(--fs-lead); color: rgba(255, 255, 255, 0.9); }
     .final-cta .btn { margin-top: var(--sp-4); }
@@ -834,9 +898,6 @@
       padding-block: var(--sp-6) var(--sp-4);
     }
     .footer-grid { display: grid; gap: var(--sp-4); }
-    .site-footer .logo { color: var(--white); }
-    .site-footer .logo:hover { color: var(--white); }
-    .site-footer .logo i { color: var(--white); opacity: .85; }
     .footer-tagline { margin-top: 12px; max-width: 36ch; }
     .footer-info { display: grid; gap: 12px; }
     .footer-info div { display: grid; gap: 2px; }
@@ -894,7 +955,7 @@
       .js .reveal {
         opacity: 0;
         transform: translateY(16px);
-        transition: opacity .6s ease, transform .6s ease;
+        transition: opacity .6s ease, transform .6s ease, border-color .2s ease;
       }
       .js .reveal.is-visible { opacity: 1; transform: none; }
     }
@@ -927,15 +988,8 @@
     </div>
 
     <div class="container navbar">
-      <a class="logo" href="#inicio" aria-label="Distrito Refrigeração, voltar ao início">
-        <svg viewBox="0 0 40 40" aria-hidden="true">
-          <path d="M2 5h20l14 11v8L22 35H2z" fill="#002B70"/>
-          <path d="M9 11h11l8 7v4l-8 7H9z" fill="#0047BB"/>
-          <g stroke="#fff" stroke-width="2" stroke-linecap="square">
-            <path d="M18 14v12M12.8 17l10.4 6M12.8 23l10.4-6"/>
-          </g>
-        </svg>
-        <span><b>Distrito</b><i>Refrigeração</i></span>
+      <a class="logo" href="#inicio">
+        <img src="assets/brand/logo.webp" width="460" height="90" alt="Distrito Refrigeração — voltar ao início">
       </a>
 
       <nav class="main-nav" id="menu-principal" aria-label="Menu principal">
@@ -1049,17 +1103,11 @@
             Falar com a equipe agora
           </a>
         </div>
-        <!-- Arte decorativa angular (desktop) -->
-        <div class="intro-art reveal" aria-hidden="true">
-          <svg viewBox="0 0 400 400">
-            <path d="M40 40h200l120 100v120L240 360H40z" fill="#E5E5E5"/>
-            <path d="M100 100h120l80 66v68l-80 66H100z" fill="#0047BB"/>
-            <g stroke="#fff" stroke-width="10" stroke-linecap="square">
-              <path d="M200 140v120M148 170l104 60M148 230l104-60"/>
-            </g>
-            <path d="M280 330h80M300 350h60M320 370h40" stroke="#002B70" stroke-width="8"/>
-          </svg>
-        </div>
+        <!-- Foto real de reparo (banco de imagens). No celular fica oculta para não alongar a página. -->
+        <figure class="about-photo about-photo--left intro-art reveal">
+          <img src="assets/img/diagnostico-placa.webp" width="800" height="1000" loading="lazy" decoding="async"
+               alt="Técnico soldando componentes em uma placa eletrônica com ferro de solda">
+        </figure>
       </div>
     </section>
 
@@ -1075,9 +1123,9 @@
         <ul class="services-grid">
 
           <li class="service-card reveal">
-            <span class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h12v20H6zM6 9h12M9 5v2M9 12v4"/></svg>
-            </span>
+            <div class="card-media">
+              <img src="assets/img/servicos/geladeira.webp" width="800" height="600" loading="lazy" decoding="async" alt="Geladeira inox de duas portas em uma cozinha clara">
+            </div>
             <h3 id="srv-geladeira">Geladeiras e Frigobares</h3>
             <div class="card-body">
               <p class="problem">Não gela, congela demais ou vaza água?</p>
@@ -1087,9 +1135,9 @@
           </li>
 
           <li class="service-card reveal">
-            <span class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8h20v12H2zM2 8l2-3h16l2 3"/><path d="M12 11v6M9.4 12.5l5.2 3M9.4 15.5l5.2-3"/></svg>
-            </span>
+            <div class="card-media">
+              <img src="assets/img/servicos/freezer.webp" width="800" height="600" loading="lazy" decoding="async" alt="Freezers verticais com portas de vidro em um corredor de supermercado">
+            </div>
             <h3 id="srv-freezer">Freezers</h3>
             <div class="card-body">
               <p class="problem">Freezer que não congela ou fica ligando toda hora?</p>
@@ -1099,9 +1147,9 @@
           </li>
 
           <li class="service-card reveal">
-            <span class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 9l10-6 10 6v12H2z"/><path d="M7 21v-8h10v8M7 16h10"/></svg>
-            </span>
+            <div class="card-media">
+              <img src="assets/img/servicos/camara.webp" width="800" height="600" loading="lazy" decoding="async" alt="Câmara fria com carrinhos e prateleiras de inox">
+            </div>
             <h3 id="srv-camara">Câmaras Frigoríficas</h3>
             <div class="card-body">
               <p class="problem">Para comércio e indústria, onde parar significa perder mercadoria.</p>
@@ -1111,9 +1159,9 @@
           </li>
 
           <li class="service-card reveal">
-            <span class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 2h16v20H4zM4 6h16M4 18h16"/><path d="M8 9v6M12 9v6M16 9v6"/></svg>
-            </span>
+            <div class="card-media">
+              <img src="assets/img/servicos/expositor.webp" width="800" height="600" loading="lazy" decoding="async" alt="Expositor refrigerado com garrafas de água e doces em uma cafeteria">
+            </div>
             <h3 id="srv-expositor">Expositores Refrigerados</h3>
             <div class="card-body">
               <p class="problem">Bebida ou alimento não gela na vitrine?</p>
@@ -1123,9 +1171,9 @@
           </li>
 
           <li class="service-card reveal">
-            <span class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2h18v20H3zM3 6h18"/><circle cx="12" cy="14" r="5"/><path d="M6 4h2"/></svg>
-            </span>
+            <div class="card-media">
+              <img src="assets/img/servicos/lavadora.webp" width="800" height="600" loading="lazy" decoding="async" alt="Máquina de lavar de abertura frontal com a porta fechada">
+            </div>
             <h3 id="srv-lavar">Máquinas de Lavar e Tanquinhos</h3>
             <div class="card-body">
               <p class="problem">Não centrifuga, vaza, faz barulho ou não enche?</p>
@@ -1135,9 +1183,9 @@
           </li>
 
           <li class="service-card reveal">
-            <span class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3zM3 10h18M7 14h10v4H7z"/><circle cx="7.5" cy="6.5" r="1.2"/><circle cx="12" cy="6.5" r="1.2"/><circle cx="16.5" cy="6.5" r="1.2"/></svg>
-            </span>
+            <div class="card-media">
+              <img src="assets/img/servicos/fogao.webp" width="800" height="600" loading="lazy" decoding="async" alt="Boca de fogão a gás acesa com chama azul">
+            </div>
             <h3 id="srv-fogao">Fogões</h3>
             <div class="card-body">
               <p class="problem">Boca com chama fraca, forno que não acende ou cheiro de gás?</p>
@@ -1200,18 +1248,14 @@
     <section id="sobre" class="section cut-top cut-top--rev" aria-labelledby="sobre-title">
       <div class="container about-grid">
         <!--
-          FOTO DA EQUIPE: substitua este bloco por uma foto da equipe (de uniforme,
-          de preferência com ferramentas ou no local de trabalho). Mantenha a proporção 4:5:
-          <img src="img/tecnico.jpg" width="800" height="1000" loading="lazy"
-               alt="Equipe de técnicos da Distrito Refrigeração, de uniforme, com ferramentas de trabalho"
-               style="width:100%;height:100%;object-fit:cover;">
+          FOTO PROVISÓRIA (banco de imagens, sem rosto): troque por uma foto REAL da sua equipe
+          (de uniforme, com ferramentas ou no local de trabalho), no mesmo tamanho 4:5 (800x1000),
+          e ajuste o alt para descrever a foto.
         -->
-        <div class="photo-slot photo-slot--light photo-slot--about reveal" aria-hidden="true">
-          <div>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4.5 4.5-7 8-7s7 2.5 8 7"/></svg>
-            [Foto da equipe]
-          </div>
-        </div>
+        <figure class="about-photo reveal">
+          <img src="assets/img/sobre-ferramentas.webp" width="800" height="1000" loading="lazy" decoding="async"
+               alt="Mãos de um técnico separando uma ponta de chave sobre a maleta de ferramentas">
+        </figure>
 
         <div class="about-text reveal">
           <h2 id="sobre-title">Quem vai até você</h2>
@@ -1258,9 +1302,10 @@
     <!-- ======================= 9. DEPOIMENTOS ======================= -->
     <!--
       Dica da copy: peça a 3 clientes atuais para mandar um áudio ou mensagem e use o
-      print (com autorização). Preencha os depoimentos em CONFIG.depoimentos no <script>.
+      print (com autorização). Preencha em CONFIG.depoimentos no <script>: a seção fica oculta
+      até existir pelo menos um depoimento real.
     -->
-    <section id="depoimentos" class="section" aria-labelledby="depoimentos-title">
+    <section id="depoimentos" class="section" aria-labelledby="depoimentos-title" hidden>
       <div class="container">
         <div class="section-head reveal">
           <h2 id="depoimentos-title">O que dizem os clientes</h2>
@@ -1354,15 +1399,8 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <a class="logo" href="#inicio" aria-label="Distrito Refrigeração, voltar ao início">
-            <svg viewBox="0 0 40 40" aria-hidden="true">
-              <path d="M2 5h20l14 11v8L22 35H2z" fill="#0047BB"/>
-              <path d="M9 11h11l8 7v4l-8 7H9z" fill="#003996"/>
-              <g stroke="#fff" stroke-width="2" stroke-linecap="square">
-                <path d="M18 14v12M12.8 17l10.4 6M12.8 23l10.4-6"/>
-              </g>
-            </svg>
-            <span><b>Distrito</b><i>Refrigeração</i></span>
+          <a class="logo logo--light" href="#inicio">
+            <img src="assets/brand/logo.webp" width="460" height="90" loading="lazy" alt="Distrito Refrigeração — voltar ao início">
           </a>
           <p class="footer-tagline">Distrito Refrigeração — Assistência técnica em refrigeração e eletrodomésticos</p>
         </div>
@@ -1426,6 +1464,7 @@
       taxaVisita: '[Sem custo / taxa de visita de R$ X, abatida se você fechar o serviço.]',
       instagramUrl: '',                          // ex.: 'https://instagram.com/distritorefrigeracao'
       facebookUrl: '',
+      // Depoimentos REAIS de clientes. A seção só aparece no site quando pelo menos um estiver preenchido.
       depoimentos: [
         { frase: '[frase curta do cliente]', nome: '[nome]', local: '[cidade/bairro]', equipamento: '[equipamento consertado]' },
         { frase: '[frase curta do cliente]', nome: '[nome]', local: '[cidade/bairro]', equipamento: '[equipamento consertado]' },
@@ -1492,11 +1531,15 @@
         }
       });
 
-      /* Depoimentos */
+      /* Depoimentos: só entram os preenchidos. Sem nenhum real, a seção continua oculta. */
       const tWrap = document.querySelector('[data-testimonials]');
-      if (tWrap && Array.isArray(CONFIG.depoimentos) && CONFIG.depoimentos.length) {
+      const tSection = document.getElementById('depoimentos');
+      const depoimentosReais = (Array.isArray(CONFIG.depoimentos) ? CONFIG.depoimentos : [])
+        .filter((d) => d && !isPlaceholder(d.frase));
+      if (tWrap && tSection && depoimentosReais.length) {
+        tSection.hidden = false;
         tWrap.textContent = '';
-        CONFIG.depoimentos.forEach((d) => {
+        depoimentosReais.forEach((d) => {
           const fig = document.createElement('figure');
           fig.className = 'testimonial reveal';
           const bq = document.createElement('blockquote');
@@ -1588,11 +1631,20 @@
       if (reduceMotion || !('IntersectionObserver' in window)) {
         revealEls.forEach((el) => el.classList.add('is-visible'));
       } else {
+        // Itens de uma mesma lista entram em cascata (80 ms entre um e outro)
+        document.querySelectorAll('.services-grid, .diffs, .steps, .highlights ul, .testimonials').forEach((list) => {
+          list.querySelectorAll(':scope > .reveal').forEach((el, i) => {
+            el.style.transitionDelay = `${i * 80}ms`;
+          });
+        });
         const io = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible');
-              io.unobserve(entry.target);
+              const el = entry.target;
+              el.classList.add('is-visible');
+              io.unobserve(el);
+              // depois da entrada, o atraso não pode afetar o hover
+              setTimeout(() => { el.style.transitionDelay = ''; }, 1200);
             }
           });
         }, { rootMargin: '0px 0px -8% 0px', threshold: 0.1 });

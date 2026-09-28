@@ -6,6 +6,7 @@
   <title>Distrito Refrigeração | Conserto de Geladeira, Freezer e mais</title>
   <meta name="description" content="Assistência técnica em refrigeração e eletrodomésticos em [cidade]. Conserto de geladeira, freezer, máquina de lavar, câmara fria e expositores. Orçamento sem compromisso.">
   <meta name="theme-color" content="#0047BB">
+  <link rel="preload" as="image" href="assets/hero-poster.jpg" fetchpriority="high">
   <script>document.documentElement.classList.add('js');</script>
 
   <!-- Única dependência externa permitida: fonte Sora (Google Fonts) -->
@@ -422,12 +423,38 @@
       padding-top: var(--sp-6);
       position: relative;
       overflow: hidden;
+      isolation: isolate;
+      display: flex;
+      align-items: center;
+      min-height: min(88vh, 720px);
+    }
+    /* Vídeo de fundo: equipamentos ficam à direita no quadro */
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 72% center;
+      pointer-events: none;
+    }
+    /* Película escura para manter contraste AA do texto sobre o vídeo */
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(180deg, rgba(0, 14, 37, 0.62) 0%, rgba(0, 14, 37, 0.80) 55%, rgba(0, 14, 37, 0.90) 100%);
+      pointer-events: none;
     }
     .hero-grid {
       display: grid;
       gap: var(--sp-5);
       align-items: center;
+      width: 100%;
     }
+    .hero-copy { max-width: 640px; }
     .hero-copy .badge { margin-bottom: var(--sp-3); }
     .hero-copy h1 { max-width: 16ch; }
     .hero-sub {
@@ -487,9 +514,12 @@
       .hero-ctas { flex-direction: row; flex-wrap: wrap; }
     }
     @media (min-width: 1100px) {
-      .hero-banner { padding-top: 88px; }
-      .hero-grid { grid-template-columns: 1.15fr 0.85fr; gap: 64px; }
-      .photo-slot--hero { aspect-ratio: 4 / 5; }
+      .hero-banner { padding-top: 88px; min-height: min(86vh, 760px); }
+      .hero-video { object-position: center; }
+      /* No desktop o texto ocupa a esquerda e o equipamento fica livre à direita */
+      .hero-banner::before {
+        background: linear-gradient(90deg, rgba(0, 14, 37, 0.92) 0%, rgba(0, 14, 37, 0.78) 40%, rgba(0, 14, 37, 0.25) 68%, rgba(0, 14, 37, 0.05) 100%);
+      }
     }
 
     /* Destaques */
@@ -934,6 +964,11 @@
     <!-- ======================= 2. HERO ======================= -->
     <section id="inicio" aria-labelledby="hero-title">
       <div class="hero-banner bg-deep cut-bottom on-dark">
+        <!-- Vídeo de fundo (mesmo arquivo no celular e no PC). Decorativo: o texto não depende dele. -->
+        <video class="hero-video" muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg" aria-hidden="true" tabindex="-1">
+          <source src="assets/hero.webm" type="video/webm">
+          <source src="assets/hero.mp4" type="video/mp4">
+        </video>
         <div class="container hero-grid">
           <div class="hero-copy reveal">
             <span class="badge">Assistência técnica em refrigeração e eletrodomésticos</span>
@@ -947,21 +982,6 @@
               <a class="btn btn--ghost" href="#servicos">Ver serviços</a>
             </div>
             <p class="hero-micro">Resposta rápida • Orçamento sem compromisso • Atendimento em <span data-cfg="cidadeRegiao">[cidade e região]</span></p>
-          </div>
-
-          <!--
-            FOTO DO HERO: substitua este bloco por uma foto sua atendendo um cliente
-            (ex.: consertando uma geladeira ou um freezer).
-            Use carregamento imediato (sem loading="lazy") e mantenha a proporção:
-            <img src="img/hero.jpg" width="960" height="1200" fetchpriority="high"
-                 alt="Técnicos da Distrito Refrigeração consertando uma geladeira na casa de um cliente"
-                 style="width:100%;height:100%;object-fit:cover;">
-          -->
-          <div class="photo-slot photo-slot--hero reveal" aria-hidden="true">
-            <div>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h4l2-3h6l2 3h4v13H3z"/><circle cx="12" cy="13" r="4"/></svg>
-              [Vídeo da equipe em atendimento]
-            </div>
           </div>
         </div>
       </div>
@@ -1546,8 +1566,24 @@
 
       desktop.addEventListener('change', () => setMenu(false));
 
-      /* ---------- Animações de entrada ---------- */
+      /* ---------- Vídeo do Hero ---------- */
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const heroVideo = document.querySelector('.hero-video');
+      if (heroVideo && !reduceMotion) {
+        heroVideo.muted = true;
+        const playVideo = () => { const p = heroVideo.play(); if (p) p.catch(() => {}); };
+        // Só toca enquanto o Hero está visível (economiza bateria e CPU)
+        if ('IntersectionObserver' in window) {
+          new IntersectionObserver((entries) => {
+            entries.forEach((entry) => (entry.isIntersecting ? playVideo() : heroVideo.pause()));
+          }).observe(heroVideo);
+        } else {
+          playVideo();
+        }
+      }
+      // Com "reduzir movimento" ativo, o vídeo não toca e fica só o poster.
+
+      /* ---------- Animações de entrada ---------- */
       const revealEls = document.querySelectorAll('.reveal');
       if (reduceMotion || !('IntersectionObserver' in window)) {
         revealEls.forEach((el) => el.classList.add('is-visible'));

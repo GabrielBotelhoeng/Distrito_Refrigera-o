@@ -1,0 +1,94 @@
+design system - Distrito Refrigeração
+
+
+🎨 CORES
+
+Primária — Azul "Frio"
+
+#0047BB — cor de marca, base de botões, header, ícones ativos
+Tons de apoio (tints, para fundos e hover): 
+#003996 → 
+#002B70 → 
+#001C4B → 
+#000E25
+
+Secundária — Cinza "Gelo"
+
+#E5E5E5 — fundos de seção alternados, cards neutros, divisores
+
+Suporte / Destaque — Laranja "Quente"
+
+#FA4616 — usar com moderação: CTA de urgência ("Chamar no WhatsApp"), badges, hover em botão secundário. Funciona como contraponto de calor ao azul frio, reforçando o conceito "climatização".
+
+Neutros complementares (não estão nas imagens, mas necessários):
+
+#FFFFFF — fundo base
+#1A1A1A ou 
+#0A0E1A — texto principal (mais suave que preto puro, combina com o tom do 
+#000E25)
+🔤 TIPOGRAFIA
+
+Fonte identificada: Sora (Jonathan Barnbrook / Julián Moncada) — gratuita no Google Fonts, pode ser usada diretamente sem substituto.
+Alternativas caso queira variar: Space Grotesk, Manrope, ou General Sans — todas geométricas/técnicas, mesma família de "peso industrial".
+
+Hierarquia sugerida:
+
+Nível	Peso	Tamanho (desktop)	Uso
+H1	Extrabold	48–56px	Título do Hero
+H2	Bold	32–36px	Títulos de seção
+H3	Semibold	22–24px	Títulos de card/serviço
+Corpo	Regular	16–18px	Parágrafos
+Legenda/Badge	Semibold, caps	12–13px	Selos ("Bem-vindo", "Nossos Diferenciais")
+🧩 COMPONENTES
+
+Botões
+
+Primário: fundo 
+#0047BB, texto branco, peso Semibold, cantos levemente cortados (2–4px de radius — o logo usa cortes diagonais retos, então evitar botões muito arredondados quebraria a identidade)
+Secundário (WhatsApp/CTA quente): fundo 
+#FA4616, texto branco, mesmo padrão de radius
+Hover: escurece para o tom 
+#003996 (ou 
+#002B70), sem sombra pesada — transição suave de cor, coerente com o estilo "chapado" da marca
+
+Inputs de formulário
+
+Fundo 
+#FFFFFF, borda 1px 
+#E5E5E5
+Foco: borda 
+#0047BB + leve glow azul (opcional)
+Radius: 4px (mantendo a linguagem angular, nada de pill/rounded-full)
+Label acima do campo, peso Semibold, 13px
+
+Cards (serviços, diferenciais)
+
+Fundo branco ou 
+#E5E5E5
+Radius: 6–8px (levemente mais suave que os botões, para não competir com o logo, mas ainda "reto")
+Sombra: 0 4px 12px rgba(0, 14, 37, 0.08) — sutil, tom frio (baseada no 
+#000E25)
+Ícone/imagem no topo em azul sólido ou monocromático
+📐 ESTÉTICA GERAL
+
+Border-radius:
+
+Botões e inputs: 2–4px
+Cards: 6–8px
+Imagens grandes (hero, fotos): 0px ou 4px — a marca usa formas retas/diagonais, evitar border-radius alto em qualquer elemento
+
+Sombras:
+
+Leves e frias (tom azulado, não preto puro): rgba(0, 14, 37, 0.08–0.12)
+Reservar sombras mais fortes só para elementos flutuantes (botão fixo de WhatsApp)
+
+Espaçamentos (escala base 8px):
+
+Entre seções: 96–120px (desktop) / 56–64px (mobile)
+Entre elementos de um bloco: 16–24px
+Padding interno de cards: 24–32px
+
+Elementos gráficos de apoio (extraídos do padrão visual das imagens):
+
+Formas diagonais/cortadas (como no "S" do logo e no asterisco) podem virar separadores de seção ou fundo decorativo sutil
+Padrão de linhas horizontais escalonadas (visto nos posts de Instagram) funciona bem como fundo de seção "Diferenciais" ou "Como Funciona"

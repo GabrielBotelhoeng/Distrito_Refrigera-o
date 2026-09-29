@@ -17,10 +17,10 @@ endossam a empresa. Por isso as fotos escolhidas mostram equipamentos e mãos, s
 
 | Arquivo | Uso | Detalhes | Tamanho |
 |---|---|---|---|
-| `hero.mp4` | fundo do Hero (celular e PC) | H.264, 1920x1080, 30 fps, 20,4 s, sem áudio, CRF 30, faststart | 3,48 MB |
-| `hero.webm` | fundo do Hero (navegadores com VP9) | VP9, 1920x1080, 30 fps, CRF 36 | 4,12 MB |
+| `hero.mp4` | fundo do Hero (celular e PC) | H.264, 1920x1080, 30 fps, 20,4 s, sem áudio, CRF 30, faststart | 3,75 MB |
+| `hero.webm` | fundo do Hero (navegadores com VP9) | VP9, 1920x1080, 30 fps, CRF 36 | 4,56 MB |
 | `hero-poster.jpg` | imagem inicial do Hero e do compartilhamento | 1600x900, 1º quadro | 144 KB |
-| `img/servicos/*.webp` | fotos dos 6 cards de serviço | 800x600 (4:3), WebP q80 | 17–81 KB cada |
+| `img/servicos/*.webp` | fotos dos 6 cards de serviço | 800x600 (4:3), WebP q80 | 20–81 KB cada |
 | `img/diagnostico-placa.webp` | foto da Apresentação (desktop) | 800x1000, quadro do vídeo de reparo de placa | 35 KB |
 | `img/sobre-ferramentas.webp` | foto provisória da seção Sobre | 800x1000 | 30 KB |
 | `img/cta-ferramentas.webp` | fundo da chamada final | 1600x900, quadro do vídeo da maleta | 88 KB |
@@ -36,28 +36,28 @@ endossam a empresa. Por isso as fotos escolhidas mostram equipamentos e mãos, s
 | vídeo do Hero (trecho 3) | Vídeo | Curtis Adams | [A kitchen with a stainless steel refrigerator and granite counter tops](https://www.pexels.com/video/a-kitchen-with-a-stainless-steel-refrigerator-and-granite-counter-tops-17246203/) |
 | vídeo do Hero (trecho 4) | Vídeo | Ahimsa - OM | [Bright Frozen Food Aisle in Supermarket](https://www.pexels.com/video/bright-frozen-food-aisle-in-supermarket-29824279/) |
 | vídeo do Hero (trecho 5) | Vídeo | S R B S C A P E | [Close up View of Clothes Spinning inside a Washing Machine](https://www.pexels.com/video/close-up-view-of-clothes-spinning-inside-a-washing-machine-15432350/) |
-| vídeo do Hero (trecho 6) | Vídeo | James Cheney | [Blue Flame Gas Stove Burner Close-Up](https://www.pexels.com/video/blue-flame-gas-stove-burner-close-up-34661882/) |
+| vídeo do Hero (trecho 6) | Vídeo | PNW Production | [Person Getting Glass of Water](https://www.pexels.com/video/person-getting-glass-of-water-8275711/) |
 | card Geladeiras e Frigobares | Foto | Curtis Adams | [Silver French Door Refrigerator in the Kitchen](https://www.pexels.com/photo/silver-french-door-refrigerator-in-the-kitchen-4933252/) |
 | card Freezers | Foto | Daniel & Hannah Snipes | [Frozen Meat Display in Retail Freezer Aisle](https://www.pexels.com/photo/frozen-meat-display-in-retail-freezer-aisle-29834274/) |
 | card Câmaras Frigoríficas | Foto | Anna Shvets | [A Worker in a Storage Room](https://www.pexels.com/photo/a-worker-in-a-storage-room-5953713/) |
 | card Expositores Refrigerados | Foto | Thang Nguyen | [Refrigerated Drinks and Snacks Display in Cafe](https://www.pexels.com/photo/refrigerated-drinks-and-snacks-display-in-cafe-34056733/) |
 | card Máquinas de Lavar e Tanquinhos | Foto | Ekaterina Belinskaya | [White Front Load Washing Machine](https://www.pexels.com/photo/white-front-load-washing-machine-4700389/) |
-| card Fogões | Foto | Mateusz Feliksik | [Close-Up Shot of a Stove](https://www.pexels.com/photo/close-up-shot-of-a-stove-13422435/) |
+| card Filtros e Purificadores de Água | Foto | Helena Lopes | [Filling Reusable Bottle at Kitchen Sink](https://www.pexels.com/photo/filling-reusable-bottle-at-kitchen-sink-27176108/) |
 | foto provisória da seção Sobre | Foto | Anete Lusina | [Faceless craftsman checking screw over tool box](https://www.pexels.com/photo/faceless-craftsman-checking-screw-over-tool-box-4792499/) |
 
 ## Como o vídeo do Hero foi montado (ffmpeg 9.0.1)
 
 Seis trechos de 4 s, na ordem: técnico abrindo a maleta → reparo de placa → geladeira → balcão refrigerado
-→ máquina de lavar → chama do fogão. Todos recebem o mesmo tratamento de cor (leve dessaturação e sombras
+→ máquina de lavar → filtro de água. Todos recebem o mesmo tratamento de cor (leve dessaturação e sombras
 puxadas para o azul da marca) e trocam entre si com fade de 0,6 s. No fim, o vídeo faz fade de volta para o
 começo, então o loop não tem emenda.
 
 ```bash
 G="scale=1920:1080:force_original_aspect_ratio=increase:flags=lanczos,crop=1920:1080,fps=30,setsar=1,eq=saturation=0.88:contrast=1.04,colorbalance=bs=0.06:bm=0.02:rs=-0.03,format=yuv420p"
 
-# 1. sequência com fades (entradas: 8986486, 6754832, 17246203, 29824279, 15432350, 34661882)
+# 1. sequência com fades (entradas: 8986486, 6754832, 17246203, 29824279, 15432350, 8275711)
 ffmpeg -ss 1 -t 4 -i 8986486.mp4 -ss 3 -t 4 -i 6754832.mp4 -ss 4 -t 4 -i 17246203.mp4 \
-       -ss 2 -t 4 -i 29824279.mp4 -ss 3 -t 4 -i 15432350.mp4 -ss 4 -t 4 -i 34661882.mp4 \
+       -ss 2 -t 4 -i 29824279.mp4 -ss 3 -t 4 -i 15432350.mp4 -ss 4 -t 4 -i 8275711.mp4 \
   -filter_complex "[0:v]$G[a];[1:v]$G[b];[2:v]$G[c];[3:v]$G[d];[4:v]$G[e];[5:v]$G[f];\
 [a][b]xfade=fade:duration=0.6:offset=3.4[ab];[ab][c]xfade=fade:duration=0.6:offset=6.8[abc];\
 [abc][d]xfade=fade:duration=0.6:offset=10.2[abcd];[abcd][e]xfade=fade:duration=0.6:offset=13.6[abcde];\

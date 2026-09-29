@@ -102,7 +102,7 @@
               </a>
               <a class="btn btn--ghost" href="#servicos">Ver serviços</a>
             </div>
-            <p class="hero-micro">Resposta rápida • Orçamento sem compromisso • Atendimento em <span data-cfg="cidadeRegiao">todo o Distrito Federal</span></p>
+            <p class="hero-micro">Resposta rápida • Orçamento sem compromisso • Atendimento a domicílio em <span data-cfg="cidadeRegiao">todo o Distrito Federal</span></p>
           </div>
         </div>
       </div>
@@ -314,7 +314,7 @@
           </li>
           <li class="reveal">
             <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>
-            <div><h3>Peças de qualidade</h3><p>Originais ou compatíveis de confiança, você escolhe.</p></div>
+            <div><h3>Você escolhe a peça</h3><p>Mostramos o preço da peça original e da paralela, com as vantagens e desvantagens de cada uma.</p></div>
           </li>
           <li class="reveal">
             <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span>
@@ -343,7 +343,7 @@
 
         <div class="about-text reveal">
           <h2 id="sobre-title">Quem vai até você</h2>
-          <p>A Distrito Refrigeração atua há <span data-cfg="anosExperiencia">[X anos]</span> com assistência técnica em refrigeração e eletrodomésticos em <span data-cfg="cidadeRegiao">todo o Distrito Federal</span>. Nossa equipe de técnicos especializados acompanha cada atendimento do diagnóstico ao teste final, porque acreditamos que serviço bem-feito é a melhor propaganda.</p>
+          <p>A Distrito Refrigeração atua há <span data-cfg="anosExperiencia">4 anos</span> com assistência técnica em refrigeração e eletrodomésticos em <span data-cfg="cidadeRegiao">todo o Distrito Federal</span>. Nossa equipe de técnicos especializados acompanha cada atendimento do diagnóstico ao teste final, porque acreditamos que serviço bem-feito é a melhor propaganda.</p>
           <p class="commit">Nosso compromisso: resolver o problema de verdade, sem gambiarra e sem inventar defeito para aumentar a conta.</p>
           <a class="btn btn--wa" data-wa="geral" href="https://wa.me/" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 5h18v16H3zM3 10h18M8 3v4M16 3v4"/></svg>
@@ -369,7 +369,7 @@
           </li>
           <li class="reveal">
             <h3>Diagnóstico e orçamento</h3>
-            <p>Avaliamos o problema e passamos o valor. Você decide se quer seguir.</p>
+            <p>Vamos até você, mostramos o que está causando o defeito e passamos o valor. Você decide se quer seguir.</p>
           </li>
           <li class="reveal">
             <h3>Conserto</h3>
@@ -516,9 +516,10 @@
           </div>
           <div>
             <dt>Endereço/Região</dt>
-            <dd><span data-cfg="endereco">[inserir]</span></dd>
+            <dd><span data-cfg="endereco" data-fallback="Atendimento a domicílio em todo o Distrito Federal">Atendimento a domicílio em todo o Distrito Federal</span></dd>
           </div>
-          <div>
+          <!-- Só aparece quando o CONFIG tiver o link de alguma rede social (ver main.js) -->
+          <div data-socials hidden>
             <dt>Redes</dt>
             <dd class="socials">
               <a data-social="instagramUrl">Instagram</a>

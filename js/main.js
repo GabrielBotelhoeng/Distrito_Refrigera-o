@@ -19,15 +19,24 @@
     if (!isPlaceholder(CONFIG.email)) el.href = 'mailto:' + CONFIG.email;
   });
 
-  /* Redes sociais: só vira link quando a URL existir */
+  /* Redes sociais: só vira link quando a URL existir. Rede sem link sai do rodapé
+     (com o separador), e a linha "Redes" só aparece se sobrar pelo menos uma. */
+  let temRede = false;
   document.querySelectorAll('[data-social]').forEach((el) => {
     const url = CONFIG[el.dataset.social];
     if (typeof url === 'string' && /^https?:\/\//.test(url)) {
       el.href = url;
       el.target = '_blank';
       el.rel = 'noopener noreferrer';
+      temRede = true;
+    } else {
+      const sep = el.nextElementSibling;
+      if (sep && sep.classList.contains('sep')) sep.remove();
+      el.remove();
     }
   });
+  const socialsRow = document.querySelector('[data-socials]');
+  if (socialsRow && temRede) socialsRow.hidden = false;
 
   /* Depoimentos: só entram os preenchidos. Sem nenhum real, a seção continua oculta. */
   const tWrap = document.querySelector('[data-testimonials]');

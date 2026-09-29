@@ -107,6 +107,9 @@ h3 { font-size: var(--fs-h3); font-weight: 600; }
 
 img, svg { display: block; max-width: 100%; }
 
+/* "hidden" sempre esconde, mesmo em elementos com display definido (ex.: linhas do rodapé) */
+[hidden] { display: none !important; }
+
 a { color: var(--blue-500); text-underline-offset: 3px; transition: color .2s ease; }
 a:hover { color: var(--blue-700); }
 

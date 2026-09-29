@@ -33,6 +33,10 @@ Detalhes que quebram fácil:
   são tratados como não preenchidos e o texto de placeholder continua visível.
 - Botões de WhatsApp usam `data-wa="geral|geladeira|comercial|lavar|filtro"`; o link é montado no `main.js`.
 - Depoimentos: a seção `#depoimentos` fica `hidden` até existir um depoimento real em `CONFIG.depoimentos`.
+- Redes sociais: a linha "Redes" do rodapé fica `hidden` até existir `instagramUrl` ou `facebookUrl`.
+  `[hidden]` tem `display: none !important` no CSS porque as linhas do rodapé usam `display: grid`.
+- `data-fallback`: texto mostrado quando o valor do CONFIG está vazio ou entre colchetes
+  (ex.: endereço vazio → "Atendimento a domicílio em todo o Distrito Federal").
 
 ## Decisões do cliente (não reverter)
 
@@ -43,6 +47,12 @@ Detalhes que quebram fácil:
 - Atende **todo o Distrito Federal** (`CONFIG.cidadeRegiao`); fora do DF, o valor é combinado com o técnico
   antes. Por isso saiu o modelo "cidade + cidades vizinhas" do config.
 - Orçamento grátis; só a taxa de visita é cobrada, calculada pela distância (km) até o cliente.
+- Foco em **atendimento a domicílio**: o cliente manda mensagem, explica o problema e a equipe vai até ele.
+  Existe loja, mas o endereço ainda não foi enviado.
+- Peças: a equipe mostra o preço da peça original e da paralela, com vantagens e desvantagens, e o cliente
+  escolhe. Faz instalação e manutenção preventiva de todos os equipamentos e atende urgência.
+- **Depoimentos só reais.** Não escrever depoimentos fictícios, mesmo a pedido (seria propaganda enganosa,
+  CDC art. 37). Ajudar a coletar os reais com autorização do cliente.
 - O **mesmo vídeo** no Hero para celular e PC.
 
 ## Imagens: só reais
@@ -79,12 +89,16 @@ links `wa.me`, vídeo tocando e ausência de erros de JS. `ffmpeg` está instala
 
 ## Pendências (próximos passos)
 
-1. Preencher `js/config.js` com os dados que faltam: anos de experiência, endereço e links de
-   Instagram/Facebook (região, garantia, pagamento e taxa de visita já estão preenchidos).
-2. Depoimentos reais de clientes (1 a 3) em `CONFIG.depoimentos`.
-3. Foto real da equipe para a seção Sobre (a atual é provisória, de banco de imagens).
+1. `js/config.js`: endereço da loja (quando o cliente mandar) e link do Instagram (em criação; não há
+   Facebook). O resto está preenchido e confirmado pelo cliente em 29/09/2026.
+2. Depoimentos reais de clientes (1 a 4) em `CONFIG.depoimentos`.
+3. Foto real da equipe para a seção Sobre (a atual é provisória, de banco de imagens; o cliente vai tentar).
 4. Confirmar com o cliente se atende marcas de purificadores (IBBL, Europa, Latina, Libell, Everest) para
    incluir na faixa de marcas.
-5. Confirmar o WhatsApp `5561981004337` (o 9º dígito foi acrescentado por dedução; o cliente passou 8100-4337).
-6. Quando os dados estiverem completos: revisar `og:image`/domínio próprio e testar num celular de verdade
+5. WhatsApp `5561981004337` é **provisório** (confirmado pelo cliente). Quando vier o definitivo, trocar
+   `WHATSAPP_NUMBER` e `telefone` no `config.js` e o texto inicial dos 2 `data-cfg="telefone"` no `index.html`.
+6. E-mail `contato@distritorefrigeracao.com.br` **não recebe mensagens**: o domínio não está registrado
+   (estava livre no Registro.br em 29/09/2026). O cliente pediu para manter. Registrar o domínio resolve o
+   e-mail e dá endereço próprio ao site.
+7. Quando os dados estiverem completos: revisar `og:image`/domínio próprio e testar num celular de verdade
    (o vídeo não tocava no celular do usuário — corrigido no commit 7c76a75, aguardando confirmação).

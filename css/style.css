@@ -292,7 +292,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 16px); }
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  gap: 4px 24px;
+  gap: 4px 16px;              /* 16px: com "todo o Distrito Federal" a barra cabe numa linha já em 768px */
   padding-block: 8px;
 }
 .topbar li { display: inline-flex; align-items: center; gap: 8px; }
@@ -843,6 +843,27 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 16px); }
 .faq-list .answer { padding: 0 var(--sp-3) var(--sp-3); color: var(--muted); }
 @media (prefers-reduced-motion: reduce) {
   .faq-list summary::after { transition: none; }
+}
+/* Selos de pagamento: símbolo do Pix e bandeiras nas cores oficiais, cada um num cartão.
+   No celular ficam em 2 linhas de 3; a partir de 768px, numa linha só. */
+.pay-logos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-1);
+  max-width: 280px;
+  margin-top: var(--sp-2);
+}
+.pay-logos li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  background: var(--white);
+  border: 1px solid var(--gray-ice);
+  border-radius: var(--r-card);
+}
+@media (min-width: 768px) {
+  .pay-logos { grid-template-columns: repeat(6, 80px); max-width: none; }
 }
 
 /* =========================================================

@@ -10,7 +10,7 @@ No ar (GitHub Pages): https://gabrielbotelhoeng.github.io/Distrito_Refrigera-o/
 ```
 index.html        → só o HTML (seções da página)
 css/style.css     → todo o visual (tokens de cor, tipografia, layout, responsivo)
-js/config.js      → DADOS DO CLIENTE: WhatsApp, cidade, garantia, depoimentos, mensagens
+js/config.js      → DADOS DO CLIENTE: WhatsApp, região, garantia, pagamento, depoimentos, mensagens
 js/main.js        → comportamento: links do WhatsApp, menu, vídeo do Hero, animações
 assets/           → vídeo, fotos, logo, favicon e logos das marcas (créditos em assets/README.md)
 ```

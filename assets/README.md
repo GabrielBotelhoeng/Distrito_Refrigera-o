@@ -27,6 +27,7 @@ endossam a empresa. Por isso as fotos escolhidas mostram equipamentos e mãos, s
 | `brand/logo.webp` | logo do header e do rodapé (fundo transparente) | recorte da `Logo Prolongada.png` sem o slogan, 460x90 | 27 KB |
 | `brand/favicon-32.png`, `brand/apple-touch-icon.png` | ícone da aba e do celular | marca "D" com floco de neve | 2 KB / 35 KB |
 | `brand/marcas/*.svg` | logos coloridos da faixa "Conserto para as principais marcas" | SVG vetorial, 2–7 KB cada | 10 arquivos |
+| `brand/pagamento/*.svg` | símbolo do Pix e bandeiras de cartão no FAQ "Quais formas de pagamento?" | SVG vetorial, metadados de editor removidos | 6 arquivos |
 
 ## Logos das marcas atendidas
 
@@ -48,6 +49,30 @@ conserta. Logo abaixo da faixa, o site informa que a assistência é independent
 
 A **Continental** (eletrodomésticos) saiu da faixa: não há logo oficial disponível (a marca deixou o
 mercado e o `Continental logo.svg` do Commons é da fabricante de pneus).
+
+## Logos das formas de pagamento
+
+Marcas registradas, usadas só para indicar como o cliente pode pagar. Os desenhos não foram alterados:
+apenas saíram os metadados do editor (Inkscape) e entrou o `viewBox` onde faltava, para o SVG escalar.
+
+| Arquivo | Origem |
+|---|---|
+| `pix.svg` | Wikimedia Commons — `Pix (Brazil) logo.svg` (vetor da apresentação do Banco Central). Só o **símbolo**, sem o logotipo "pix" e sem "powered by Banco Central" |
+| `visa.svg` | Wikimedia Commons — `Visa Inc. logo (2021–present).svg` |
+| `mastercard.svg` | Wikimedia Commons — `Mastercard 2019 logo.svg` (símbolo usado desde 2019, sem o nome) |
+| `elo.svg` | Wikimedia Commons — `Logotipo da Elo.svg` (identidade de 2024) |
+| `amex.svg` | Wikimedia Commons — `American Express logo (2018).svg` |
+| `hipercard.svg` | Wikimedia Commons — `Hipercard logo.svg` |
+
+**Regras do [Manual de Uso da Marca Pix](https://www.bcb.gov.br/content/estabilidadefinanceira/pix/Regulamento_Pix/I_manual_uso_marca_pix.pdf)
+(v1.6, maio/2025) seguidas aqui:**
+
+- A marca completa tem tamanho mínimo de 145 px (sem a frase) e 240 px (com "powered by Banco Central").
+  Num selo pequeno vale só o **símbolo** (mínimo 24 px), permitido em peças digitais e comércio eletrônico.
+- Junto de outras formas de pagamento, **nenhuma marca pode ficar mais alta que o símbolo do Pix**
+  (aqui ele tem 28 px; as bandeiras têm de 16 a 28 px) e todas aparecem alinhadas pelo centro.
+- **Não escrever "Pix" ao lado do símbolo** em outra fonte, e não mudar a cor (só verde Pix ou preto).
+- Em texto corrido, escrever "Pix" com P maiúsculo.
 
 ## Créditos (Pexels)
 

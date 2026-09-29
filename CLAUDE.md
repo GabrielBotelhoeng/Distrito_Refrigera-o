@@ -21,7 +21,7 @@ index.html      → só o HTML das seções
 css/style.css   → todo o CSS; tokens do design system em :root
 js/config.js    → DADOS DO CLIENTE (CONFIG) e mensagens do WhatsApp (WA_MESSAGES)
 js/main.js      → comportamento: preenche dados do CONFIG, monta links wa.me, menu, vídeo, animações
-assets/         → vídeo do Hero, fotos, logo, favicon, logos das marcas (créditos em assets/README.md)
+assets/         → vídeo do Hero, fotos, logo, favicon, logos das marcas e de pagamento (créditos em assets/README.md)
 assets/raw/     → originais e versões antigas (IA); fora do git (.gitignore)
 ```
 
@@ -40,6 +40,9 @@ Detalhes que quebram fácil:
 - **Não faz mais fogões.** No lugar entrou "Filtros e Purificadores de Água" (purificador elétrico de casa e
   filtros industriais de escolas/empresas).
 - Voz de **empresa com equipe** ("a gente", "nós"), não de técnico autônomo.
+- Atende **todo o Distrito Federal** (`CONFIG.cidadeRegiao`); fora do DF, o valor é combinado com o técnico
+  antes. Por isso saiu o modelo "cidade + cidades vizinhas" do config.
+- Orçamento grátis; só a taxa de visita é cobrada, calculada pela distância (km) até o cliente.
 - O **mesmo vídeo** no Hero para celular e PC.
 
 ## Imagens: só reais
@@ -53,6 +56,9 @@ Detalhes que quebram fácil:
 - Faixa de marcas: logos oficiais em SVG (Wikimedia Commons; Fischer veio do fischer.com.br — o
   "Fischer logo.svg" do Commons é de esqui). Continental foi removida (sem logo da marca de eletrodomésticos).
   Abaixo da faixa há o aviso "assistência técnica independente, sem vínculo com os fabricantes".
+- Selos de pagamento no FAQ (`assets/brand/pagamento/`): Pix aparece só como **símbolo**, e o manual da
+  marca Pix proíbe bandeira mais alta que ele e a palavra "Pix" escrita ao lado em outra fonte
+  (regras completas em `assets/README.md`).
 
 ## Design system e acessibilidade
 
@@ -73,8 +79,8 @@ links `wa.me`, vídeo tocando e ausência de erros de JS. `ffmpeg` está instala
 
 ## Pendências (próximos passos)
 
-1. Preencher `js/config.js` com os dados reais: cidade e cidades vizinhas, anos de experiência, garantia,
-   endereço, formas de pagamento, taxa de visita, links de Instagram/Facebook.
+1. Preencher `js/config.js` com os dados que faltam: anos de experiência, endereço e links de
+   Instagram/Facebook (região, garantia, pagamento e taxa de visita já estão preenchidos).
 2. Depoimentos reais de clientes (1 a 3) em `CONFIG.depoimentos`.
 3. Foto real da equipe para a seção Sobre (a atual é provisória, de banco de imagens).
 4. Confirmar com o cliente se atende marcas de purificadores (IBBL, Europa, Latina, Libell, Everest) para

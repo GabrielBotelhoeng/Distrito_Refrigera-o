@@ -6,15 +6,14 @@
 const CONFIG = {
   WHATSAPP_NUMBER: '5561981004337',           // formato 55 + DDD + número, só dígitos. Ex.: 5561912345678
   anosExperiencia: '[X anos]',               // ex.: '12 anos'
-  garantia: '[prazo]',                       // ex.: '90 dias'
-  cidade: '[cidade]',
-  cidadesVizinhas: ['[cidade vizinha]', '[cidade vizinha]'],
-  cidadeRegiao: '[cidade e região]',
+  garantia: '3 meses',                       // ex.: '90 dias'
+  cidadeRegiao: 'todo o Distrito Federal',   // completa "Atendimento em ..." e "Atendemos ..."
   telefone: '(61) 98100-4337',              // como aparece na tela
   email: 'contato@distritorefrigeracao.com.br',
   endereco: '[inserir]',
-  formasPagamento: '[Pix, dinheiro e cartão de crédito/débito.]',
-  taxaVisita: '[Sem custo / taxa de visita de R$ X, abatida se você fechar o serviço.]',
+  // Respostas do FAQ. Os logos do Pix e das bandeiras ficam no index.html (seção Perguntas).
+  formasPagamento: 'Pix, dinheiro e cartão de crédito/débito. Aceitamos todas as bandeiras.',
+  taxaVisita: 'O orçamento é totalmente gratuito. Cobramos apenas a taxa de visita, calculada pela distância (em km) até o seu endereço. Mande sua localização no WhatsApp para saber o valor.',
   instagramUrl: '',                          // ex.: 'https://instagram.com/distritorefrigeracao'
   facebookUrl: '',
   // Depoimentos REAIS de clientes. A seção só aparece no site quando pelo menos um estiver preenchido.

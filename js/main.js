@@ -4,18 +4,9 @@
   const isPlaceholder = (v) =>
     typeof v !== 'string' || v.trim() === '' || /^\[.*\]$/.test(v.trim());
 
-  /* ---------- Valores derivados ---------- */
-  const vizinhas = Array.isArray(CONFIG.cidadesVizinhas) ? CONFIG.cidadesVizinhas : [];
-  const regiaoCompleta = [CONFIG.cidade, ...vizinhas];
-  const values = Object.assign({}, CONFIG, {
-    regiaoFaq: regiaoCompleta.some(isPlaceholder)
-      ? '[Cidade e cidades vizinhas]'
-      : regiaoCompleta.slice(0, -1).join(', ') + ' e ' + regiaoCompleta[regiaoCompleta.length - 1]
-  });
-
   /* ---------- Texto a partir do CONFIG ---------- */
   document.querySelectorAll('[data-cfg]').forEach((el) => {
-    const value = values[el.dataset.cfg];
+    const value = CONFIG[el.dataset.cfg];
     const fallback = el.dataset.fallback;
     if (isPlaceholder(value) && fallback) {
       el.textContent = fallback;          // placeholder específico daquele trecho da copy
@@ -24,20 +15,9 @@
     }
   });
 
-  document.querySelectorAll('[data-cfg-list]').forEach((el) => {
-    const list = values[el.dataset.cfgList];
-    if (Array.isArray(list) && list.length) el.textContent = list.join(', ');
-  });
-
   document.querySelectorAll('[data-cfg-email]').forEach((el) => {
     if (!isPlaceholder(CONFIG.email)) el.href = 'mailto:' + CONFIG.email;
   });
-
-  /* Meta description */
-  const meta = document.querySelector('meta[name="description"]');
-  if (meta && !isPlaceholder(CONFIG.cidade)) {
-    meta.setAttribute('content', meta.getAttribute('content').replace('[cidade]', CONFIG.cidade));
-  }
 
   /* Redes sociais: só vira link quando a URL existir */
   document.querySelectorAll('[data-social]').forEach((el) => {

@@ -628,10 +628,11 @@
     .intro-text p + p { margin-top: var(--sp-2); }
     .intro-text p { font-size: var(--fs-lead); color: var(--muted); }
     .intro-text .btn { margin-top: var(--sp-4); }
-    .intro-art { display: none; }
+    /* Celular e tablet: a foto aparece abaixo do texto, num formato mais baixo (4:3) */
+    .about-photo.intro-art { aspect-ratio: 4 / 3; max-width: 560px; }
     @media (min-width: 1100px) {
       .intro-grid { grid-template-columns: 1.2fr 0.8fr; gap: 80px; }
-      .intro-art { display: block; justify-self: end; width: 100%; }
+      .about-photo.intro-art { aspect-ratio: 4 / 5; max-width: 480px; justify-self: end; width: 100%; }
     }
 
     /* =========================================================
@@ -1040,8 +1041,9 @@
       <div class="hero-banner bg-deep cut-bottom on-dark">
         <!-- Vídeo de fundo (mesmo arquivo no celular e no PC). Decorativo: o texto não depende dele. -->
         <video class="hero-video" muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg" aria-hidden="true" tabindex="-1">
-          <source src="assets/hero.webm" type="video/webm">
+          <!-- MP4 (H.264) primeiro: toca em qualquer celular, inclusive iPhone -->
           <source src="assets/hero.mp4" type="video/mp4">
+          <source src="assets/hero.webm" type="video/webm">
         </video>
         <div class="container hero-grid">
           <div class="hero-copy reveal">
@@ -1141,7 +1143,7 @@
             Falar com a equipe agora
           </a>
         </div>
-        <!-- Foto real de reparo (banco de imagens). No celular fica oculta para não alongar a página. -->
+        <!-- Foto real de reparo (banco de imagens). No celular aparece abaixo do texto, em 4:3. -->
         <figure class="about-photo about-photo--left intro-art reveal">
           <img src="assets/img/diagnostico-placa.webp" width="800" height="1000" loading="lazy" decoding="async"
                alt="Técnico soldando componentes em uma placa eletrônica com ferro de solda">
@@ -1653,14 +1655,27 @@
       const heroVideo = document.querySelector('.hero-video');
       if (heroVideo && !reduceMotion) {
         heroVideo.muted = true;
-        const playVideo = () => { const p = heroVideo.play(); if (p) p.catch(() => {}); };
+        heroVideo.setAttribute('muted', ''); // alguns iPhones exigem o atributo além da propriedade
+        let heroVisivel = true;
+        const playVideo = () => {
+          if (!heroVisivel || !heroVideo.paused) return;
+          const p = heroVideo.play();
+          if (p) p.catch(() => {});
+        };
+        playVideo(); // tenta já ao abrir a página
+        heroVideo.addEventListener('canplay', playVideo, { once: true });
+        // Se o celular bloqueou o início automático (ex.: economia de bateria),
+        // tenta de novo no primeiro toque, clique ou rolagem.
+        ['touchstart', 'click', 'scroll'].forEach((ev) =>
+          window.addEventListener(ev, playVideo, { once: true, passive: true }));
         // Só toca enquanto o Hero está visível (economiza bateria e CPU)
         if ('IntersectionObserver' in window) {
           new IntersectionObserver((entries) => {
-            entries.forEach((entry) => (entry.isIntersecting ? playVideo() : heroVideo.pause()));
+            entries.forEach((entry) => {
+              heroVisivel = entry.isIntersecting;
+              if (heroVisivel) playVideo(); else heroVideo.pause();
+            });
           }).observe(heroVideo);
-        } else {
-          playVideo();
         }
       }
       // Com "reduzir movimento" ativo, o vídeo não toca e fica só o poster.

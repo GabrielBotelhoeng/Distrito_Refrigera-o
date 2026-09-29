@@ -47,7 +47,6 @@
       --white: #FFFFFF;
       --ink: #0A0E1A;
       --muted: #3D4452;
-      --brand-gray: #5A5F6B;      /* marcas no marquee (5:1 sobre #E5E5E5) */
 
       /* Tipografia */
       --font: 'Sora', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
@@ -557,7 +556,7 @@
     /* =========================================================
        FAIXA DE MARCAS (marquee CSS puro)
        ========================================================= */
-    .brands { padding-block: var(--sp-4); overflow: hidden; }
+    .brands { padding-block: var(--sp-5); overflow: hidden; }
     .brands h2 {
       font-size: var(--fs-badge);
       font-weight: 600;
@@ -567,46 +566,58 @@
       text-align: center;
       margin-bottom: var(--sp-3);
     }
-    .marquee { overflow: hidden; }
+    /* As bordas da faixa esmaecem, e os logos "entram" e "saem" suavemente */
+    .marquee {
+      overflow: hidden;
+      padding-block: 10px;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+    }
     .marquee-track {
       display: flex;
       width: max-content;
-      animation: marquee 32s linear infinite;
+      animation: marquee 40s linear infinite;
     }
     .marquee:hover .marquee-track,
     .marquee:focus-within .marquee-track { animation-play-state: paused; }
-    .marquee ul { display: flex; flex-shrink: 0; }
-    .marquee li {
+    .marquee ul { display: flex; flex-shrink: 0; gap: var(--sp-2); padding-right: var(--sp-2); }
+    /* Cada logo, com as cores oficiais da marca, num cartão branco */
+    .brand-tile {
       display: flex;
       align-items: center;
-      padding-inline: 28px;
-      font-size: 1.375rem;
-      font-weight: 800;
-      font-style: italic;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-      color: var(--brand-gray);
-      white-space: nowrap;
+      justify-content: center;
+      flex-shrink: 0;
+      height: 80px;
+      padding-inline: 32px;
+      background: var(--white);
+      border-radius: var(--r-card);
+      box-shadow: var(--shadow-card);
+      transition: transform .25s ease, box-shadow .25s ease;
     }
-    .marquee li::after {
-      content: "";
-      width: 8px;
-      height: 8px;
-      margin-left: 56px;
-      background: var(--brand-gray);
-      transform: skewX(-20deg);
-      opacity: .6;
+    .brand-tile:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0, 14, 37, 0.12); }
+    .brand-tile img { display: block; max-width: none; }
+    /* No celular, cartões e logos menores para caberem mais marcas na tela */
+    @media (max-width: 767px) {
+      .brand-tile { height: 64px; padding-inline: 20px; }
+      .brand-tile img { zoom: 0.8; }
+    }
+    .brands-note {
+      margin-top: var(--sp-2);
+      text-align: center;
+      font-size: 0.8125rem;
+      color: var(--muted);
     }
     @keyframes marquee {
       from { transform: translateX(0); }
       to { transform: translateX(-50%); }
     }
     @media (prefers-reduced-motion: reduce) {
+      .marquee { -webkit-mask-image: none; mask-image: none; }
       .marquee-track { animation: none; width: auto; }
-      .marquee ul { flex-wrap: wrap; justify-content: center; flex-shrink: 1; }
+      .marquee ul { flex-wrap: wrap; justify-content: center; flex-shrink: 1; padding-inline: var(--gutter); }
       .marquee ul[aria-hidden="true"] { display: none; }
-      .marquee li { padding: 6px 14px; font-size: 1.125rem; }
-      .marquee li::after { display: none; }
+      .brand-tile { transition: none; }
+      .brand-tile:hover { transform: none; }
     }
 
     /* =========================================================
@@ -1085,18 +1096,36 @@
     <!-- ======================= 3. FAIXA DE MARCAS ======================= -->
     <section id="marcas" class="brands bg-ice" aria-labelledby="marcas-title">
       <h2 id="marcas-title" class="container">Conserto para as principais marcas do mercado</h2>
+      <!-- Logos oficiais em SVG (assets/brand/marcas). A 2ª lista é a cópia que fecha o loop do letreiro. -->
       <div class="marquee">
         <div class="marquee-track">
           <ul>
-            <li>Brastemp</li><li>Consul</li><li>Electrolux</li><li>LG</li><li>Samsung</li>
-            <li>Midea</li><li>Fischer</li><li>Elgin</li><li>Continental</li><li>Philco</li><li>GE</li>
+            <li class="brand-tile"><img src="assets/brand/marcas/brastemp.svg" width="208" height="20" alt="Brastemp" loading="lazy" decoding="async"></li>
+            <li class="brand-tile"><img src="assets/brand/marcas/consul.svg" width="117" height="30" alt="Consul" loading="lazy" decoding="async"></li>
+            <li class="brand-tile"><img src="assets/brand/marcas/electrolux.svg" width="122" height="28" alt="Electrolux" loading="lazy" decoding="async"></li>
+            <li class="brand-tile"><img src="assets/brand/marcas/lg.svg" width="87" height="40" alt="LG" loading="lazy" decoding="async"></li>
+            <li class="brand-tile"><img src="assets/brand/marcas/samsung.svg" width="144" height="22" alt="Samsung" loading="lazy" decoding="async"></li>
+            <li class="brand-tile"><img src="assets/brand/marcas/midea.svg" width="94" height="36" alt="Midea" loading="lazy" decoding="async"></li>
+            <li class="brand-tile"><img src="assets/brand/marcas/fischer.svg" width="100" height="34" alt="Fischer" loading="lazy" decoding="async"></li>
+            <li class="brand-tile"><img src="assets/brand/marcas/elgin.svg" width="87" height="36" alt="Elgin" loading="lazy" decoding="async"></li>
+            <li class="brand-tile"><img src="assets/brand/marcas/philco.svg" width="163" height="22" alt="Philco" loading="lazy" decoding="async"></li>
+            <li class="brand-tile"><img src="assets/brand/marcas/ge.svg" width="46" height="46" alt="GE" loading="lazy" decoding="async"></li>
           </ul>
           <ul aria-hidden="true">
-            <li>Brastemp</li><li>Consul</li><li>Electrolux</li><li>LG</li><li>Samsung</li>
-            <li>Midea</li><li>Fischer</li><li>Elgin</li><li>Continental</li><li>Philco</li><li>GE</li>
+            <li class="brand-tile"><img src="assets/brand/marcas/brastemp.svg" width="208" height="20" alt="" loading="lazy" decoding="async"></li>
+            <li class="brand-tile"><img src="assets/brand/marcas/consul.svg" width="117" height="30" alt="" loading="lazy" decoding="async"></li>
+            <li class="brand-tile"><img src="assets/brand/marcas/electrolux.svg" width="122" height="28" alt="" loading="lazy" decoding="async"></li>
+            <li class="brand-tile"><img src="assets/brand/marcas/lg.svg" width="87" height="40" alt="" loading="lazy" decoding="async"></li>
+            <li class="brand-tile"><img src="assets/brand/marcas/samsung.svg" width="144" height="22" alt="" loading="lazy" decoding="async"></li>
+            <li class="brand-tile"><img src="assets/brand/marcas/midea.svg" width="94" height="36" alt="" loading="lazy" decoding="async"></li>
+            <li class="brand-tile"><img src="assets/brand/marcas/fischer.svg" width="100" height="34" alt="" loading="lazy" decoding="async"></li>
+            <li class="brand-tile"><img src="assets/brand/marcas/elgin.svg" width="87" height="36" alt="" loading="lazy" decoding="async"></li>
+            <li class="brand-tile"><img src="assets/brand/marcas/philco.svg" width="163" height="22" alt="" loading="lazy" decoding="async"></li>
+            <li class="brand-tile"><img src="assets/brand/marcas/ge.svg" width="46" height="46" alt="" loading="lazy" decoding="async"></li>
           </ul>
         </div>
       </div>
+      <p class="brands-note container">Assistência técnica independente, sem vínculo com os fabricantes.</p>
     </section>
 
     <!-- ======================= 4. APRESENTAÇÃO ======================= -->

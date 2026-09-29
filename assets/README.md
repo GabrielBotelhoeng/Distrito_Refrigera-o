@@ -26,6 +26,28 @@ endossam a empresa. Por isso as fotos escolhidas mostram equipamentos e mãos, s
 | `img/cta-ferramentas.webp` | fundo da chamada final | 1600x900, quadro do vídeo da maleta | 88 KB |
 | `brand/logo.webp` | logo do header e do rodapé (fundo transparente) | recorte da `Logo Prolongada.png` sem o slogan, 460x90 | 27 KB |
 | `brand/favicon-32.png`, `brand/apple-touch-icon.png` | ícone da aba e do celular | marca "D" com floco de neve | 2 KB / 35 KB |
+| `brand/marcas/*.svg` | logos coloridos da faixa "Conserto para as principais marcas" | SVG vetorial, 2–7 KB cada | 10 arquivos |
+
+## Logos das marcas atendidas
+
+São marcas registradas dos respectivos fabricantes e aparecem só para indicar quais equipamentos a empresa
+conserta. Logo abaixo da faixa, o site informa que a assistência é independente, sem vínculo com os fabricantes.
+
+| Arquivo | Origem |
+|---|---|
+| `brastemp.svg` | Wikimedia Commons — `Logotipo da Brastemp (2023).svg` |
+| `consul.svg` | Wikimedia Commons — `Logotipo da Consul.svg` |
+| `electrolux.svg` | Wikimedia Commons — `Electrolux 2015.svg` |
+| `lg.svg` | Wikimedia Commons — `LG logo (2014).svg` |
+| `samsung.svg` | Wikimedia Commons — `Samsung wordmark.svg` |
+| `midea.svg` | Wikimedia Commons — `Midea.svg` |
+| `fischer.svg` | site oficial da Fischer (fischer.com.br) — o `Fischer logo.svg` do Commons é de outra empresa (artigos de esqui) |
+| `elgin.svg` | Wikimedia Commons — `LogoElgin.svg` |
+| `philco.svg` | Wikimedia Commons — `Philco logo.svg` |
+| `ge.svg` | Wikimedia Commons — `General Electric logo.svg` |
+
+A **Continental** (eletrodomésticos) saiu da faixa: não há logo oficial disponível (a marca deixou o
+mercado e o `Continental logo.svg` do Commons é da fabricante de pneus).
 
 ## Créditos (Pexels)
 

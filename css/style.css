@@ -917,12 +917,14 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 16px); }
 .footer-grid { display: grid; gap: var(--sp-4); }
 .footer-tagline { margin-top: 12px; max-width: 36ch; }
 .footer-info { display: grid; gap: 12px; }
-.footer-info div { display: grid; gap: 2px; }
+.footer-info div { display: grid; gap: 2px; align-content: start; }
 .footer-info dt { font-size: var(--fs-badge); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); }
 .footer-info dd { overflow-wrap: anywhere; }
 .site-footer a { color: var(--white); }
 .site-footer a:hover { color: var(--gray-ice); }
 .footer-info dd a { display: inline-flex; align-items: center; min-height: 44px; }
+.footer-note { display: block; }
+.address { white-space: pre-line; }   /* respeita a quebra de linha (\n) do endereço no config */
 .socials { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
 .socials a, .socials span { display: inline-flex; align-items: center; min-height: 44px; }
 .socials .sep { opacity: .5; }

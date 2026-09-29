@@ -35,8 +35,9 @@ Detalhes que quebram fácil:
 - Depoimentos: a seção `#depoimentos` fica `hidden` até existir um depoimento real em `CONFIG.depoimentos`.
 - Redes sociais: a linha "Redes" do rodapé fica `hidden` até existir `instagramUrl` ou `facebookUrl`.
   `[hidden]` tem `display: none !important` no CSS porque as linhas do rodapé usam `display: grid`.
-- `data-fallback`: texto mostrado quando o valor do CONFIG está vazio ou entre colchetes
-  (ex.: endereço vazio → "Atendimento a domicílio em todo o Distrito Federal").
+- `data-fallback`: texto mostrado quando o valor do CONFIG está vazio ou entre colchetes.
+- Endereço: `CONFIG.endereco` usa `\n` para quebrar a linha (classe `.address`, `white-space: pre-line`) e
+  `data-cfg-maps` vira link do Google Maps; sem endereço, o link sai e fica só "Atendimento a domicílio".
 
 ## Decisões do cliente (não reverter)
 
@@ -48,7 +49,8 @@ Detalhes que quebram fácil:
   antes. Por isso saiu o modelo "cidade + cidades vizinhas" do config.
 - Orçamento grátis; só a taxa de visita é cobrada, calculada pela distância (km) até o cliente.
 - Foco em **atendimento a domicílio**: o cliente manda mensagem, explica o problema e a equipe vai até ele.
-  Existe loja, mas o endereço ainda não foi enviado.
+  A loja (QE 40, Conjunto R, Lote 26, Loja 2 – Guará II, CEP 71070-182 conferido no ViaCEP) aparece só no
+  rodapé, sempre acompanhada da linha "Atendimento a domicílio".
 - Peças: a equipe mostra o preço da peça original e da paralela, com vantagens e desvantagens, e o cliente
   escolhe. Faz instalação e manutenção preventiva de todos os equipamentos e atende urgência.
 - **Depoimentos só reais.** Não escrever depoimentos fictícios, mesmo a pedido (seria propaganda enganosa,
@@ -89,8 +91,8 @@ links `wa.me`, vídeo tocando e ausência de erros de JS. `ffmpeg` está instala
 
 ## Pendências (próximos passos)
 
-1. `js/config.js`: endereço da loja (quando o cliente mandar) e link do Instagram (em criação; não há
-   Facebook). O resto está preenchido e confirmado pelo cliente em 29/09/2026.
+1. `js/config.js`: link do Instagram (em criação; não há Facebook). O resto está preenchido e confirmado
+   pelo cliente em 29/09/2026.
 2. Depoimentos reais de clientes (1 a 4) em `CONFIG.depoimentos`.
 3. Foto real da equipe para a seção Sobre (a atual é provisória, de banco de imagens; o cliente vai tentar).
 4. Confirmar com o cliente se atende marcas de purificadores (IBBL, Europa, Latina, Libell, Everest) para

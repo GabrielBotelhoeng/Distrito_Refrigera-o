@@ -12,7 +12,9 @@ const CONFIG = {
   telefone: '(61) 98100-4337',              // como aparece na tela
   // Atenção: o domínio distritorefrigeracao.com.br ainda não foi registrado, então este e-mail não recebe mensagens.
   email: 'contato@distritorefrigeracao.com.br',
-  endereco: '',                              // endereço da loja (ainda não enviado). Vazio: o rodapé mostra "Atendimento a domicílio em todo o Distrito Federal"
+  // Loja (o foco é o atendimento a domicílio). Vira link do Google Maps no rodapé; vazio, o link some.
+  // O \n quebra a linha no site: rua na 1ª linha, bairro/cidade/CEP na 2ª.
+  endereco: 'QE 40, Conjunto R, Lote 26, Loja 2\nGuará II, Brasília – DF, 71070-182',
   // Respostas do FAQ. Os logos do Pix e das bandeiras ficam no index.html (seção Perguntas).
   formasPagamento: 'Pix, dinheiro e cartão de crédito/débito. Aceitamos todas as bandeiras.',
   taxaVisita: 'O orçamento é totalmente gratuito. Cobramos apenas a taxa de visita, calculada pela distância (em km) até o seu endereço. Mande sua localização no WhatsApp para saber o valor.',

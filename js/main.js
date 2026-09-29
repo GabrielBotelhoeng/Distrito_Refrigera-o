@@ -19,6 +19,13 @@
     if (!isPlaceholder(CONFIG.email)) el.href = 'mailto:' + CONFIG.email;
   });
 
+  /* Endereço da loja: link para o Google Maps. Sem endereço, o link sai e fica só "a domicílio". */
+  document.querySelectorAll('[data-cfg-maps]').forEach((el) => {
+    if (isPlaceholder(CONFIG.endereco)) el.remove();
+    else el.href = 'https://www.google.com/maps/search/?api=1&query=' +
+      encodeURIComponent(CONFIG.endereco.replace(/\s*\n\s*/g, ', '));
+  });
+
   /* Redes sociais: só vira link quando a URL existir. Rede sem link sai do rodapé
      (com o separador), e a linha "Redes" só aparece se sobrar pelo menos uma. */
   let temRede = false;

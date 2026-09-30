@@ -93,7 +93,7 @@ links `wa.me`, vídeo tocando e ausência de erros de JS. `ffmpeg` está instala
 
 1. `js/config.js`: link do Instagram (em criação; não há Facebook). O resto está preenchido e confirmado
    pelo cliente em 29/09/2026.
-2. Depoimentos: 4 reais publicados em 29/09/2026 (enviados pelo usuário). Novos entram em `CONFIG.depoimentos`
+2. Depoimentos: 4 reais em 29/09/2026, com autorização dos clientes e nas palavras deles (não editar o texto). Novos entram em `CONFIG.depoimentos`
    (grade de 2 colunas a partir de 768px, pensada para número par).
 3. Foto real da equipe para a seção Sobre (a atual é provisória, de banco de imagens; o cliente vai tentar).
 4. Confirmar com o cliente se atende marcas de purificadores (IBBL, Europa, Latina, Libell, Everest) para

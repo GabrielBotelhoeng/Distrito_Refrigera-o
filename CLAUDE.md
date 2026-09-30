@@ -93,14 +93,14 @@ links `wa.me`, vídeo tocando e ausência de erros de JS. `ffmpeg` está instala
 
 1. `js/config.js`: link do Instagram (em criação; não há Facebook). O resto está preenchido e confirmado
    pelo cliente em 29/09/2026.
-2. Depoimentos reais de clientes (1 a 4) em `CONFIG.depoimentos`.
+2. Depoimentos: 4 reais publicados em 29/09/2026 (enviados pelo usuário). Novos entram em `CONFIG.depoimentos`
+   (grade de 2 colunas a partir de 768px, pensada para número par).
 3. Foto real da equipe para a seção Sobre (a atual é provisória, de banco de imagens; o cliente vai tentar).
 4. Confirmar com o cliente se atende marcas de purificadores (IBBL, Europa, Latina, Libell, Everest) para
    incluir na faixa de marcas.
 5. WhatsApp `5561981004337` é **provisório** (confirmado pelo cliente). Quando vier o definitivo, trocar
    `WHATSAPP_NUMBER` e `telefone` no `config.js` e o texto inicial dos 2 `data-cfg="telefone"` no `index.html`.
-6. E-mail `contato@distritorefrigeracao.com.br` **não recebe mensagens**: o domínio não está registrado
-   (estava livre no Registro.br em 29/09/2026). O cliente pediu para manter. Registrar o domínio resolve o
-   e-mail e dá endereço próprio ao site.
+6. E-mail oficial: `distritorefrigeracao@gmail.com` (29/09/2026). O domínio distritorefrigeracao.com.br
+   continua sem registro; registrá-lo daria endereço próprio ao site.
 7. Quando os dados estiverem completos: revisar `og:image`/domínio próprio e testar num celular de verdade
    (o vídeo não tocava no celular do usuário — corrigido no commit 7c76a75, aguardando confirmação).

@@ -10,8 +10,7 @@ const CONFIG = {
   garantia: '3 meses',                       // ex.: '90 dias'
   cidadeRegiao: 'todo o Distrito Federal',   // completa "Atendimento em ..." e "Atendemos ..."
   telefone: '(61) 98100-4337',              // como aparece na tela
-  // Atenção: o domínio distritorefrigeracao.com.br ainda não foi registrado, então este e-mail não recebe mensagens.
-  email: 'contato@distritorefrigeracao.com.br',
+  email: 'distritorefrigeracao@gmail.com',
   // Loja (o foco é o atendimento a domicílio). Vira link do Google Maps no rodapé; vazio, o link some.
   // O \n quebra a linha no site: rua na 1ª linha, bairro/cidade/CEP na 2ª.
   endereco: 'QE 40, Conjunto R, Lote 26, Loja 2\nGuará II, Brasília – DF, 71070-182',
@@ -23,9 +22,10 @@ const CONFIG = {
   facebookUrl: '',
   // Depoimentos REAIS de clientes. A seção só aparece no site quando pelo menos um estiver preenchido.
   depoimentos: [
-    { frase: '[frase curta do cliente]', nome: '[nome]', local: '[cidade/bairro]', equipamento: '[equipamento consertado]' },
-    { frase: '[frase curta do cliente]', nome: '[nome]', local: '[cidade/bairro]', equipamento: '[equipamento consertado]' },
-    { frase: '[frase curta do cliente]', nome: '[nome]', local: '[cidade/bairro]', equipamento: '[equipamento consertado]' }
+    { frase: 'Minha experiência com a Distrito Refrigeração foi excelente! A equipe veio até minha casa, avaliou meu freezer e fez o conserto com muito cuidado e rapidez. O freezer voltou a funcionar perfeitamente. Serviço bem feito e profissionais muito atenciosos!', nome: 'João Silva', local: 'Taguatinga/DF', equipamento: 'Freezer' },
+    { frase: 'Minha geladeira estava apresentando problemas e eu já estava preocupada com os alimentos. Entrei em contato com a equipe e o atendimento foi muito rápido. O técnico identificou o problema e realizou o reparo com muita eficiência. Recomendo o serviço!', nome: 'Mariana Oliveira', local: 'Águas Claras/DF', equipamento: 'Geladeira' },
+    { frase: 'Minha máquina de lavar estava com defeito e precisava de um reparo. A equipe veio até minha casa, identificou o problema e fez o serviço com muita atenção. Ficou funcionando perfeitamente novamente. Profissionais muito bons e serviço de qualidade!', nome: 'Carlos Santos', local: 'Ceilândia/DF', equipamento: 'Máquina de lavar' },
+    { frase: 'Chamei a Distrito Refrigeração para verificar meu freezer que não estava funcionando corretamente. O atendimento foi rápido e o técnico explicou tudo antes de realizar o serviço. O problema foi resolvido e o freezer voltou a funcionar perfeitamente. Recomendo muito!', nome: 'Fernanda Costa', local: 'Sobradinho/DF', equipamento: 'Freezer' }
   ]
 };
 

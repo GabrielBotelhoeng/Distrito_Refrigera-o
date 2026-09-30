@@ -804,7 +804,7 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 16px); }
 .testimonial blockquote p { font-size: var(--fs-lead); font-weight: 600; color: var(--ink); }
 .testimonial figcaption { font-size: 0.9375rem; color: var(--muted); }
 .testimonial figcaption strong { display: block; color: var(--blue-800); }
-@media (min-width: 768px) { .testimonials { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 768px) { .testimonials { grid-template-columns: repeat(2, 1fr); } }
 
 /* =========================================================
    FAQ

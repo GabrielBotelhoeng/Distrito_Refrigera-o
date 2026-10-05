@@ -120,5 +120,4 @@ links `wa.me`, vídeo tocando e ausência de erros de JS. `ffmpeg` está instala
 8. Perfil da Empresa no Google criado em 05/10/2026 na conta distritorefrigeracao@gmail.com (categoria
    "Assistência técnica de eletrodomésticos", loja + área DF, horário, serviços, descrição). **Falta a
    verificação por vídeo** (fachada, interior e comprovante) e fotos reais; só aparece no Maps depois disso.
-7. Quando os dados estiverem completos: revisar `og:image`/domínio próprio e testar num celular de verdade
-   (o vídeo não tocava no celular do usuário — corrigido no commit 7c76a75, aguardando confirmação).
+7. Testado num celular de verdade em 05/10/2026: vídeo do Hero tocando e botões de WhatsApp funcionando.

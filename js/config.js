@@ -4,12 +4,12 @@
    o texto de placeholder visível.
    ========================================================= */
 const CONFIG = {
-  // Número PROVISÓRIO: o cliente vai trocar. Ao trocar, mude também "telefone" logo abaixo.
-  WHATSAPP_NUMBER: '5561981004337',           // formato 55 + DDD + número, só dígitos. Ex.: 5561912345678
+  // Ao trocar o número, mude também "telefone" abaixo, os 2 data-cfg="telefone" e o JSON-LD do index.html.
+  WHATSAPP_NUMBER: '5561982669555',           // formato 55 + DDD + número, só dígitos. Ex.: 5561912345678
   anosExperiencia: '4 anos',                 // ex.: '12 anos'
   garantia: '3 meses',                       // ex.: '90 dias'
   cidadeRegiao: 'todo o Distrito Federal',   // completa "Atendimento em ..." e "Atendemos ..."
-  telefone: '(61) 98100-4337',              // como aparece na tela
+  telefone: '(61) 98266-9555',              // como aparece na tela
   email: 'distritorefrigeracao@gmail.com',
   // Loja (o foco é o atendimento a domicílio). Vira link do Google Maps no rodapé; vazio, o link some.
   // O \n quebra a linha no site: rua na 1ª linha, bairro/cidade/CEP na 2ª.

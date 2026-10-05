@@ -106,10 +106,9 @@ links `wa.me`, vídeo tocando e ausência de erros de JS. `ffmpeg` está instala
 3. Foto real da equipe para a seção Sobre (a atual é provisória, de banco de imagens; o cliente vai tentar).
 4. Confirmar com o cliente se atende marcas de purificadores (IBBL, Europa, Latina, Libell, Everest) para
    incluir na faixa de marcas.
-5. WhatsApp `5561981004337` é **provisório** (confirmado pelo cliente). Quando vier o definitivo, trocar
-   `WHATSAPP_NUMBER` e `telefone` no `config.js` e o texto inicial dos 2 `data-cfg="telefone"` no `index.html`
-   e o `telephone` do JSON-LD no `<head>`.
-6. E-mail oficial: `distritorefrigeracao@gmail.com` (29/09/2026). O domínio distritorefrigeracao.com.br
-   continua sem registro; registrá-lo daria endereço próprio ao site.
+5. WhatsApp definitivo `5561982669555` / (61) 98266-9555 (05/10/2026). Se mudar, trocar `WHATSAPP_NUMBER` e
+   `telefone` no `config.js`, os 2 `data-cfg="telefone"` e o `telephone` do JSON-LD no `index.html`.
+6. E-mail oficial: `distritorefrigeracao@gmail.com` (29/09/2026). Domínio `distritorefrigeracao.com.br`
+   confirmado (05/10/2026); o site vai para a Vercel. Depois: Search Console + Perfil da Empresa no Google.
 7. Quando os dados estiverem completos: revisar `og:image`/domínio próprio e testar num celular de verdade
    (o vídeo não tocava no celular do usuário — corrigido no commit 7c76a75, aguardando confirmação).

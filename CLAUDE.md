@@ -109,6 +109,11 @@ links `wa.me`, vídeo tocando e ausência de erros de JS. `ffmpeg` está instala
 5. WhatsApp definitivo `5561982669555` / (61) 98266-9555 (05/10/2026). Se mudar, trocar `WHATSAPP_NUMBER` e
    `telefone` no `config.js`, os 2 `data-cfg="telefone"` e o `telephone` do JSON-LD no `index.html`.
 6. E-mail oficial: `distritorefrigeracao@gmail.com` (29/09/2026). Domínio `distritorefrigeracao.com.br`
-   confirmado (05/10/2026); o site vai para a Vercel. Depois: Search Console + Perfil da Empresa no Google.
+   confirmado (05/10/2026). Vercel: projeto `distrito-refrigeracao` (deploy a cada push em `main`), domínio
+   principal sem www e `www` com 308 para ele. DNS no Registro.br (modo avançado): A @ 216.198.79.1 e
+   CNAME www a443a2a08dfe8046.vercel-dns-017.com. Falta: Search Console + envio do sitemap.
+8. Perfil da Empresa no Google criado em 05/10/2026 na conta distritorefrigeracao@gmail.com (categoria
+   "Assistência técnica de eletrodomésticos", loja + área DF, horário, serviços, descrição). **Falta a
+   verificação por vídeo** (fachada, interior e comprovante) e fotos reais; só aparece no Maps depois disso.
 7. Quando os dados estiverem completos: revisar `og:image`/domínio próprio e testar num celular de verdade
    (o vídeo não tocava no celular do usuário — corrigido no commit 7c76a75, aguardando confirmação).

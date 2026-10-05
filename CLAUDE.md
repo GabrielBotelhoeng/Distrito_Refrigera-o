@@ -82,6 +82,14 @@ Detalhes que quebram fácil:
 - Vídeo do Hero: **MP4 como primeira fonte** (iPhone), tenta tocar ao abrir, no `canplay` e no 1º
   toque/rolagem; pausa fora da tela.
 
+## SEO
+
+- Domínio oficial assumido: `https://distritorefrigeracao.com.br/` (sem www). Está no `canonical`, `og:url`,
+  `og:image`, JSON-LD (`LocalBusiness`) do `<head>`, `robots.txt` e `sitemap.xml`. Se mudar, trocar em todos.
+- O JSON-LD repete telefone, e-mail, endereço e horário do `config.js` (o Google não lê o JS): manter iguais.
+- Rodapé tem "Serviços" (links para `#srv-*`) e "Regiões atendidas no DF". Não encher de palavras-chave
+  repetidas (o Google pune). Depois de publicar: Google Search Console + Perfil da Empresa no Google.
+
 ## Como verificar mudanças
 
 Sem suíte de testes. Abrir o `index.html` no navegador e, para checagem automática, usar o Chrome headless
@@ -99,7 +107,8 @@ links `wa.me`, vídeo tocando e ausência de erros de JS. `ffmpeg` está instala
 4. Confirmar com o cliente se atende marcas de purificadores (IBBL, Europa, Latina, Libell, Everest) para
    incluir na faixa de marcas.
 5. WhatsApp `5561981004337` é **provisório** (confirmado pelo cliente). Quando vier o definitivo, trocar
-   `WHATSAPP_NUMBER` e `telefone` no `config.js` e o texto inicial dos 2 `data-cfg="telefone"` no `index.html`.
+   `WHATSAPP_NUMBER` e `telefone` no `config.js` e o texto inicial dos 2 `data-cfg="telefone"` no `index.html`
+   e o `telephone` do JSON-LD no `<head>`.
 6. E-mail oficial: `distritorefrigeracao@gmail.com` (29/09/2026). O domínio distritorefrigeracao.com.br
    continua sem registro; registrá-lo daria endereço próprio ao site.
 7. Quando os dados estiverem completos: revisar `og:image`/domínio próprio e testar num celular de verdade

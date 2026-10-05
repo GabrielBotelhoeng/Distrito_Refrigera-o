@@ -9,12 +9,68 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png">
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
 
-  <!-- Compartilhamento (WhatsApp, Facebook etc.). Troque a URL quando tiver domínio próprio. -->
+  <!-- SEO: domínio oficial. Se o domínio mudar, troque aqui, no og:image, no JSON-LD abaixo,
+       no robots.txt e no sitemap.xml. -->
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://distritorefrigeracao.com.br/">
+  <meta name="geo.region" content="BR-DF">
+  <meta name="geo.placename" content="Brasília">
+
+  <!-- Compartilhamento (WhatsApp, Facebook etc.) -->
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Distrito Refrigeração">
+  <meta property="og:url" content="https://distritorefrigeracao.com.br/">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="Distrito Refrigeração | Conserto de Geladeira, Freezer e mais">
   <meta property="og:description" content="Assistência técnica em refrigeração e eletrodomésticos. Orçamento sem compromisso pelo WhatsApp.">
-  <meta property="og:image" content="https://gabrielbotelhoeng.github.io/Distrito_Refrigera-o/assets/hero-poster.jpg">
+  <meta property="og:image" content="https://distritorefrigeracao.com.br/assets/hero-poster.jpg">
+
+  <!-- Dados estruturados (Google): ficha da empresa local. Mantenha igual ao js/config.js
+       (telefone, e-mail, endereço e horário). -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://distritorefrigeracao.com.br/#empresa",
+    "name": "Distrito Refrigeração",
+    "description": "Assistência técnica em refrigeração e eletrodomésticos no Distrito Federal: conserto de geladeira, freezer, frigobar, câmara fria, expositor refrigerado, máquina de lavar, tanquinho e filtros e purificadores de água, com atendimento a domicílio.",
+    "url": "https://distritorefrigeracao.com.br/",
+    "logo": "https://distritorefrigeracao.com.br/assets/brand/logo.webp",
+    "image": "https://distritorefrigeracao.com.br/assets/hero-poster.jpg",
+    "telephone": "+55-61-98100-4337",
+    "email": "distritorefrigeracao@gmail.com",
+    "priceRange": "Orçamento grátis",
+    "paymentAccepted": "Pix, dinheiro, cartão de crédito, cartão de débito",
+    "currenciesAccepted": "BRL",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "QE 40, Conjunto R, Lote 26, Loja 2",
+      "addressLocality": "Guará II, Brasília",
+      "addressRegion": "DF",
+      "postalCode": "71070-182",
+      "addressCountry": "BR"
+    },
+    "areaServed": { "@type": "AdministrativeArea", "name": "Distrito Federal" },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    }],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Serviços de assistência técnica",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Conserto de geladeira e frigobar" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Conserto de freezer" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Manutenção de câmara fria" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Conserto de expositor refrigerado" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Conserto de máquina de lavar e tanquinho" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Manutenção de filtros e purificadores de água" } }
+      ]
+    }
+  }
+  </script>
 
   <link rel="preload" as="image" href="assets/hero-poster.jpg" fetchpriority="high">
   <!-- Único JS embutido, de propósito: marca que o JS está ativo ANTES da página aparecer,
@@ -534,6 +590,29 @@
             </dd>
           </div>
         </dl>
+      </div>
+
+      <!-- Serviços e regiões atendidas: ajudam o Google (e o cliente) a saber o que fazemos e onde. -->
+      <div class="footer-seo">
+        <div>
+          <h2 class="footer-title">Serviços</h2>
+          <ul class="footer-links">
+            <li><a href="#srv-geladeira">Conserto de geladeira e frigobar</a></li>
+            <li><a href="#srv-freezer">Conserto de freezer</a></li>
+            <li><a href="#srv-camara">Manutenção de câmara fria</a></li>
+            <li><a href="#srv-expositor">Conserto de expositor refrigerado</a></li>
+            <li><a href="#srv-lavar">Conserto de máquina de lavar e tanquinho</a></li>
+            <li><a href="#srv-filtro">Manutenção de filtro e purificador de água</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="footer-title">Regiões atendidas no DF</h2>
+          <p class="footer-regions">Asa Norte, Asa Sul, Lago Sul, Lago Norte, Sudoeste, Octogonal, Cruzeiro, Noroeste, Guará,
+            Águas Claras, Taguatinga, Ceilândia, Sol Nascente, Samambaia, Recanto das Emas, Riacho Fundo,
+            Núcleo Bandeirante, Candangolândia, Park Way, Vicente Pires, Arniqueira, SIA, Estrutural, Gama,
+            Santa Maria, Sobradinho, Planaltina, Paranoá, Itapoã, São Sebastião, Jardim Botânico, Brazlândia,
+            Varjão e Fercal.</p>
+        </div>
       </div>
 
       <p class="footer-bottom">© 2026 Distrito Refrigeração. Todos os direitos reservados.</p>

@@ -934,8 +934,20 @@ section[id] { scroll-margin-top: calc(var(--header-h) + 16px); }
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   font-size: 0.875rem;
 }
+.footer-seo {
+  display: grid;
+  gap: var(--sp-3);
+  margin-top: var(--sp-5);
+  padding-top: var(--sp-4);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+.footer-title { font-size: var(--fs-badge); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); margin-bottom: 8px; }
+.footer-links { list-style: none; margin: 0; padding: 0; display: grid; }
+.footer-links a { display: inline-flex; align-items: center; min-height: 44px; }
+.footer-regions { font-size: 0.9375rem; line-height: 1.7; }
 @media (min-width: 768px) {
   .footer-grid { grid-template-columns: 1fr 1.4fr; gap: var(--sp-6); }
+  .footer-seo { grid-template-columns: 1fr 1.4fr; gap: var(--sp-6); }
   .footer-info { grid-template-columns: repeat(2, 1fr); gap: var(--sp-3); }
 }
 

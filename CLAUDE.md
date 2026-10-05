@@ -8,8 +8,10 @@ Landing page da **Distrito Refrigeração** (assistência técnica em refrigera�
 Objetivo único: converter visitante em contato pelo **WhatsApp**. Responder sempre em português.
 
 - HTML, CSS e JS puros, **sem build e sem framework**. Não há `package.json`, lint nem testes automatizados.
-- Publicado no GitHub Pages a cada push em `main` (leva ~1 min):
-  https://gabrielbotelhoeng.github.io/Distrito_Refrigera-o/
+- Publicado na **Vercel** a cada push em `main` (leva ~1 min): https://distritorefrigeracao.com.br/
+  (GitHub Pages desligado em 05/10/2026).
+- Rodapé tem o crédito "Site desenvolvido por" com o WhatsApp do desenvolvedor (provisório; ele vai trocar
+  pelo Instagram — mudar href e texto do link `.dev-credit` no `index.html`).
 - Repositório git **próprio desta pasta** (`GabrielBotelhoeng/Distrito_Refrigera-o`). A pasta `Desktop` acima
   tem OUTRO repositório git — rode git sempre de dentro de `Distrito_Refrigeraçao/`.
 - Confirmar com o usuário antes de `git push` (o push publica no ar).

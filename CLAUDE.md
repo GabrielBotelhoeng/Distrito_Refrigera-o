@@ -111,7 +111,10 @@ links `wa.me`, vídeo tocando e ausência de erros de JS. `ffmpeg` está instala
 6. E-mail oficial: `distritorefrigeracao@gmail.com` (29/09/2026). Domínio `distritorefrigeracao.com.br`
    confirmado (05/10/2026). Vercel: projeto `distrito-refrigeracao` (deploy a cada push em `main`), domínio
    principal sem www e `www` com 308 para ele. DNS no Registro.br (modo avançado): A @ 216.198.79.1 e
-   CNAME www a443a2a08dfe8046.vercel-dns-017.com. Falta: Search Console + envio do sitemap.
+   CNAME www a443a2a08dfe8046.vercel-dns-017.com. Site no ar com HTTPS desde 05/10/2026.
+   Search Console: propriedade de domínio verificada pelo TXT `google-site-verification=...` (NÃO remover
+   do DNS) e sitemap enviado — provisoriamente na conta pessoal do desenvolvedor; quando houver acesso ao
+   Gmail da Distrito, adicioná-la como proprietária (verifica sozinha pelo mesmo TXT) e remover a pessoal.
 8. Perfil da Empresa no Google criado em 05/10/2026 na conta distritorefrigeracao@gmail.com (categoria
    "Assistência técnica de eletrodomésticos", loja + área DF, horário, serviços, descrição). **Falta a
    verificação por vídeo** (fachada, interior e comprovante) e fotos reais; só aparece no Maps depois disso.
